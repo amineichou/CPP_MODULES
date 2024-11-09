@@ -1,9 +1,9 @@
 NAME = PhoneBook
-SRC = PhoneBook.cpp
+SRC = PhoneBook.cpp Contact.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
-#FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 
 all: $(NAME)
@@ -18,6 +18,7 @@ clean:
 	rm -f $(NAME)
 
 fclean: clean
+	rm -f $(OBJ)
 
 re: fclean all
 

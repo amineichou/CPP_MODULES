@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 16:40:39 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/09 22:01:40 by moichou          ###   ########.fr       */
+/*   Created: 2024/11/05 14:13:55 by moichou           #+#    #+#             */
+/*   Updated: 2024/11/09 17:00:16 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "Fixed.hpp"
 
-#include "Contact.hpp"
-
-class PhoneBook
+int main(void)
 {
-private:
-    int ContactsCount;
-    Contact Contacts[8];
-
-public:
-    PhoneBook();
-    void addContact();
-    void searchContacts();
-    void setContactsCount(int newCount);
-    int getContactsCount(void);
-    Contact getContactByIndex(int index);
-};
-
-#endif
+    Fixed a;
+    Fixed b(a);
+    Fixed c;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    return 0;
+}

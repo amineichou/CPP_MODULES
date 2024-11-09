@@ -1,33 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 16:40:39 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/09 22:01:40 by moichou          ###   ########.fr       */
+/*   Created: 2024/11/06 15:08:30 by moichou           #+#    #+#             */
+/*   Updated: 2024/11/06 15:08:43 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "Fixed.hpp"
 
-#include "Contact.hpp"
-
-class PhoneBook
-{
-private:
-    int ContactsCount;
-    Contact Contacts[8];
-
-public:
-    PhoneBook();
-    void addContact();
-    void searchContacts();
-    void setContactsCount(int newCount);
-    int getContactsCount(void);
-    Contact getContactByIndex(int index);
-};
-
-#endif

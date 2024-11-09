@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 16:40:39 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/09 22:01:40 by moichou          ###   ########.fr       */
+/*   Created: 2024/11/05 14:14:20 by moichou           #+#    #+#             */
+/*   Updated: 2024/11/09 17:36:36 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-#include "Contact.hpp"
+#include <iostream>
 
-class PhoneBook
-{
+#include <iostream>
+
+class Fixed {
 private:
-    int ContactsCount;
-    Contact Contacts[8];
+    int fixedPoint;
 
 public:
-    PhoneBook();
-    void addContact();
-    void searchContacts();
-    void setContactsCount(int newCount);
-    int getContactsCount(void);
-    Contact getContactByIndex(int index);
+    int getRawBits() const;
+    Fixed();
+    Fixed(const Fixed &obj);
+    Fixed &operator=(const Fixed &obj);
+    ~Fixed();
 };
+
 
 #endif

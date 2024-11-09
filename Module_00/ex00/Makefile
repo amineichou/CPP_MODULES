@@ -1,13 +1,13 @@
 NAME = megaphone
 
-CC = c++
+CC = c++ -std=c++98
 FLAGS = -Wall -Wextra -Werror
 
 
 all: $(NAME)
 
 $(NAME): megaphone.cpp
-	$(CC) $(FLAGS) -std=c++98 -o $(NAME) megaphone.cpp
+	$(CC) $(FLAGS) -o $(NAME) megaphone.cpp
 
 clean:
 	rm -f $(NAME)

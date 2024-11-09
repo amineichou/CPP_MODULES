@@ -6,24 +6,107 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 16:40:46 by moichou           #+#    #+#             */
-/*   Updated: 2024/10/10 16:18:41 by moichou          ###   ########.fr       */
+/*   Updated: 2024/11/09 22:09:41 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void Search(PhoneBook MyPhoneBook)
+PhoneBook::PhoneBook()
 {
-    int contactCount = MyPhoneBook.getContactsCount();
-    if (contactCount != 0)
+    ContactsCount = 0;
+}
+
+int isEmptyString(std::string str)
+{
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (!std::isspace(str[i]))
+            return 0;
+    }
+    return 1;
+}
+
+void PhoneBook::addContact()
+{
+    Contact NewContact;
+    std::string detail;
+
+    std::cout << "FirstName : ";
+    if (!std::getline(std::cin, detail) || !detail.length() || isEmptyString(detail))
+    {
+        std::cout << "Error adding contact" << std::endl;
+        return ;
+    }
+    else {
+        NewContact.setFirstName(detail);
+    }
+
+    std::cout << "LastName : ";
+    if (!std::getline(std::cin, detail) || !detail.length())
+    {
+        std::cout << "Error adding contact" << std::endl;
+        return ;
+    }
+    else {
+        NewContact.setLastName(detail);
+    }
+
+    std::cout << "NickName : ";
+    if (!std::getline(std::cin, detail) || !detail.length())
+    {
+        std::cout << "Error adding contact" << std::endl;
+        return ;
+    }
+    else {
+        NewContact.setNickName(detail);
+    }
+
+    std::cout << "PhoneNumber : ";
+    if (!std::getline(std::cin, detail) || !detail.length() )
+    {
+        std::cout << "Error adding contact" << std::endl;
+        return ;
+    }
+    else {
+        NewContact.setPhoneNumber(detail);
+    }
+
+    std::cout << "DarkestSecret : ";
+    if (!std::getline(std::cin, detail) || !detail.length() )
+    {
+        std::cout << "Error adding contact" << std::endl;
+        return ;
+    }
+    else {
+        NewContact.setDarkestSecret(detail);
+    }
+
+    if (ContactsCount > 8)
+    {
+        Contacts[0] = NewContact;
+        ContactsCount++;
+        return ;
+    }
+    Contacts[ContactsCount] = NewContact;
+    ContactsCount++;
+}
+
+void PhoneBook::searchContacts() {
+    if (ContactsCount == 0)
+    {
+        std::cout << "No contacts in the phone book!\n";
+        return ;
+    }
+    for (int i = 0; i < ContactsCount; i++)
     {
         std::cout << "-------------------------------------------------------------------\n";
         std::cout << "|   First Name   |   Last Name   |   Nick Name  |   Phone Number    |\n";
         std::cout << "-------------------------------------------------------------------\n";
 
-        for (int i = 0; i < contactCount; i++)
+        for (int i = 0; i < ContactsCount; i++)
         {
-            Contact tmp = MyPhoneBook.getContactByIndex(i);
+            Contact tmp = getContactByIndex(i);
             std::cout << "| " << "       " << tmp.getFirstName()
                       << " | " << "       " << tmp.getLastName()
                       << " | " << "       " << tmp.getNickName()
@@ -32,50 +115,19 @@ void Search(PhoneBook MyPhoneBook)
 
         std::cout << "-------------------------------------------------------------------\n";
     }
-    else
-        std::cout << "No contacts in the phone book!\n";
 }
 
-int main(void)
+void PhoneBook::setContactsCount(int newCount)
 {
-    PhoneBook   MyPhoneBook(0);
-    std::string FirstName;
-    std::string LastName;
-    std::string NickName;
-    std::string PhoneNumber;
-    std::string command;
+    ContactsCount = newCount;
+}
 
-    while (true)
-    {
-        std::cout << "PHONE BOOK >> ";
-        std::cin >> command;
+int PhoneBook::getContactsCount(void)
+{
+    return ContactsCount;
+}
 
-        if (command == "EXIT")
-            break;
-
-        if (command == "ADD")
-        {
-            std::cout << "First Name: ";
-            std::cin >> FirstName;
-            std::cout << "Last Name: ";
-            std::cin >> LastName;
-            std::cout << "Nick Name: ";
-            std::cin >> NickName;
-            std::cout << "Phone Number: ";
-            std::cin >> PhoneNumber;
-
-            Contact NewContact;
-            NewContact.setFirstName(FirstName);
-            NewContact.setLastName(LastName);
-            NewContact.setNickName(NickName);
-            NewContact.setPhoneNumber(PhoneNumber);
-            MyPhoneBook.addContact(NewContact);
-            printf("HERE\n");
-        }
-
-        if (command == "SEARCH")
-            Search(MyPhoneBook);
-    }
-
-    return 0;
+Contact PhoneBook::getContactByIndex(int index)
+{
+    return Contacts[index];
 }
