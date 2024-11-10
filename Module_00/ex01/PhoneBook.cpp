@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 16:40:46 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/09 22:09:41 by moichou          ###   ########.fr       */
+/*   Updated: 2024/11/10 18:29:49 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 PhoneBook::PhoneBook()
 {
     ContactsCount = 0;
+    for (int i = 0; i < 8; i++)
+    {
+        Contacts[i].setIndex(-1);
+    }
 }
+
+PhoneBook::~PhoneBook(){}
 
 int isEmptyString(std::string str)
 {
@@ -27,93 +33,151 @@ int isEmptyString(std::string str)
     return 1;
 }
 
+int isStrNumber(std::string str)
+{
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (str[i] > '9' || str[i] < '0')
+            return 0;
+    }
+    return 1;
+}
+
 void PhoneBook::addContact()
 {
     Contact NewContact;
     std::string detail;
 
-    std::cout << "FirstName : ";
+    std::cout << "First name : ";
     if (!std::getline(std::cin, detail) || !detail.length() || isEmptyString(detail))
     {
-        std::cout << "Error adding contact" << std::endl;
+        std::cout << "Error adding contact first name is not valid!" << std::endl;
         return ;
     }
     else {
         NewContact.setFirstName(detail);
     }
 
-    std::cout << "LastName : ";
-    if (!std::getline(std::cin, detail) || !detail.length())
+    std::cout << "Last name : ";
+    if (!std::getline(std::cin, detail) || !detail.length() || isEmptyString(detail))
     {
-        std::cout << "Error adding contact" << std::endl;
+        std::cout << "Error adding contact last name is not valid!" << std::endl;
         return ;
     }
     else {
         NewContact.setLastName(detail);
     }
 
-    std::cout << "NickName : ";
-    if (!std::getline(std::cin, detail) || !detail.length())
+    std::cout << "Nick name : ";
+    if (!std::getline(std::cin, detail) || !detail.length() || isEmptyString(detail))
     {
-        std::cout << "Error adding contact" << std::endl;
+        std::cout << "Error adding contact : nick name is not valid!" << std::endl;
         return ;
     }
     else {
         NewContact.setNickName(detail);
     }
 
-    std::cout << "PhoneNumber : ";
-    if (!std::getline(std::cin, detail) || !detail.length() )
+    std::cout << "Phone number : ";
+    if (!std::getline(std::cin, detail) || !detail.length() || isEmptyString(detail) || !isStrNumber(detail))
     {
-        std::cout << "Error adding contact" << std::endl;
+        std::cout << "Error adding contact : phone number is not valid!" << std::endl;
         return ;
     }
     else {
         NewContact.setPhoneNumber(detail);
     }
 
-    std::cout << "DarkestSecret : ";
-    if (!std::getline(std::cin, detail) || !detail.length() )
+    std::cout << "Darkest secret : ";
+    if (!std::getline(std::cin, detail) || !detail.length() || isEmptyString(detail))
     {
-        std::cout << "Error adding contact" << std::endl;
+        std::cout << "Error adding contact : Darkest secret is not valid!" << std::endl;
         return ;
     }
     else {
         NewContact.setDarkestSecret(detail);
     }
 
-    if (ContactsCount > 8)
+    if (ContactsCount >= 8)
     {
-        Contacts[0] = NewContact;
-        ContactsCount++;
+        ContactsCount = 0;
+        NewContact.setIndex(ContactsCount);
+        Contacts[ContactsCount] = NewContact;
+        std::cout << "Contact added successfully ✅" << std::endl;
         return ;
     }
+    NewContact.setIndex(ContactsCount);
     Contacts[ContactsCount] = NewContact;
     ContactsCount++;
+    std::cout << "Contact added successfully ✅" << std::endl;
+}
+
+int strToNum(std::string cmd)
+{
+    if (cmd.length() < 1 || !isStrNumber(cmd))
+        return (-1);
+    return (cmd[0] - 48);
 }
 
 void PhoneBook::searchContacts() {
-    if (ContactsCount == 0)
+    if (!Contacts[0].getFirstName().length())
     {
         std::cout << "No contacts in the phone book!\n";
         return ;
     }
-    for (int i = 0; i < ContactsCount; i++)
+
+    std::cout << "+-------------------------------------------+" << std::endl;
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << "index";
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << "first name";
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << "last name";
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << "nickname";
+    std::cout << "|"  << std::endl;;
+    std::cout << "+-------------------------------------------+" << std::endl;
+    
+    for (int i = 0; i < 8; i++)
     {
-        std::cout << "-------------------------------------------------------------------\n";
-        std::cout << "|   First Name   |   Last Name   |   Nick Name  |   Phone Number    |\n";
-        std::cout << "-------------------------------------------------------------------\n";
+        int index = Contacts[i].getIndex();
+        if (index == -1)
+            break;
+        std::string firstName = Contacts[i].getFirstName().length() > 10 ? Contacts[i].getFirstName().substr(0, 9)  + "." : Contacts[i].getFirstName();
+        std::string lastName = Contacts[i].getLastName().length() > 10 ? Contacts[i].getLastName().substr(0, 9)  + "." : Contacts[i].getLastName();
+        std::string nickName = Contacts[i].getNickName().length() > 10 ? Contacts[i].getNickName().substr(0, 9)  + "." : Contacts[i].getNickName();
+        std::cout << "|" << std::setw(10) << std::right << index
+                  << "|" << std::setw(10) << std::right << firstName
+                  << "|" << std::setw(10) << std::right << lastName
+                  << "|" << std::setw(10) << std::right << nickName << "|" << std::endl;
+        std::cout << "+-------------------------------------------+\n";
+    }
 
-        for (int i = 0; i < ContactsCount; i++)
+    std::string cmd;
+    std::cout << "enter a contact id to see details : ";    
+    if (!std::getline(std::cin, cmd))
+    {
+        std::cout << "error reading command" << std::endl;
+        exit(1);
+    }
+    
+    int id = strToNum(cmd);
+    if (id == -1)
+    {
+        std::cout << "Index is not available" << std::endl;
+        return ;
+    }
+    else {
+        if (Contacts[id].getIndex() != -1)
         {
-            Contact tmp = getContactByIndex(i);
-            std::cout << "| " << "       " << tmp.getFirstName()
-                      << " | " << "       " << tmp.getLastName()
-                      << " | " << "       " << tmp.getNickName()
-                      << " | " << "       " << tmp.getPhoneNumber() << " |\n";
+            std::cout << "first name : " << Contacts[id].getFirstName() << std::endl;
+            std::cout << "last name : " << Contacts[id].getLastName() << std::endl;
+            std::cout << "nick name : " << Contacts[id].getNickName() << std::endl;
+            std::cout << "phone number : " << Contacts[id].getPhoneNumber() << std::endl;
         }
-
-        std::cout << "-------------------------------------------------------------------\n";
+        else {
+            std::cout << "Index is not available" << std::endl;
+        }
     }
 }
 
@@ -125,9 +189,4 @@ void PhoneBook::setContactsCount(int newCount)
 int PhoneBook::getContactsCount(void)
 {
     return ContactsCount;
-}
-
-Contact PhoneBook::getContactByIndex(int index)
-{
-    return Contacts[index];
 }

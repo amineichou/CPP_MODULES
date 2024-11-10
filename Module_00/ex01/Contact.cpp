@@ -6,11 +6,14 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 20:46:09 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/09 21:15:52 by moichou          ###   ########.fr       */
+/*   Updated: 2024/11/10 18:23:45 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+Contact::Contact(){}
+Contact::~Contact(){}
 
 std::string Contact::getFirstName(void) const
 {
@@ -37,6 +40,11 @@ std::string Contact::getDarkestSecret(void) const
     return DarkestSecret;
 }
 
+int Contact::getIndex(void) const
+{
+    return index;
+}
+
 void Contact::setFirstName(std::string firstName)
 {
     FirstName = firstName;
@@ -60,4 +68,9 @@ void Contact::setPhoneNumber(std::string phoneNumber)
 void Contact::setDarkestSecret(std::string darkestSecret)
 {
     DarkestSecret = darkestSecret;
+}
+
+void Contact::setIndex(int newIndex)
+{
+    index = newIndex;
 }
