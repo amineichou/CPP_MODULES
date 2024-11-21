@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 20:14:19 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/10 15:14:21 by moichou          ###   ########.fr       */
+/*   Updated: 2024/11/21 11:13:15 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int main(int ac, char **av)
     (void)av;
     PhoneBook   MyPhoneBook;
     std::string cmd;
+
+    print_help();
 
     while (true)
     {

@@ -6,11 +6,10 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:59:45 by moichou           #+#    #+#             */
-/*   Updated: 2024/10/12 20:44:49 by moichou          ###   ########.fr       */
+/*   Updated: 2024/11/21 20:14:48 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
