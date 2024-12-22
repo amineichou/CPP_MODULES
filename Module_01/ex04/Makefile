@@ -4,7 +4,7 @@ SRCS = main.cpp replaceStr.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 COMPILER = c++ -std=c++98
-FLAGS = -fsanitize=address -g #-Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror 
 
 all: $(NAME)
 
@@ -22,4 +22,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean

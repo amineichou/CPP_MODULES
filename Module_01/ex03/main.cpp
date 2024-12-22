@@ -6,11 +6,10 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:19:13 by moichou           #+#    #+#             */
-/*   Updated: 2024/10/13 16:02:45 by moichou          ###   ########.fr       */
+/*   Updated: 2024/11/23 16:01:43 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 

@@ -6,22 +6,24 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:00:47 by moichou           #+#    #+#             */
-/*   Updated: 2024/10/13 14:58:19 by moichou          ###   ########.fr       */
+/*   Updated: 2024/11/23 10:56:19 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *newZombie(std::string name) {
-    Zombie *createdZombie = new Zombie;
+Zombie::Zombie(){}
 
-    createdZombie->setName(name);
-    return (createdZombie);
+Zombie::~Zombie()
+{
+    std::cout << this->name << " Destroyed!" << std::endl;
 }
 
+void Zombie::announce(void) {
+    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-void randomChump( std::string name ) {
-    Zombie *createdZombi = newZombie(name);
-    createdZombi->announce();
-    delete createdZombi;
+void Zombie::setName(std::string newName)
+{
+    this->name = newName;
 }

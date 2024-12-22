@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:10:44 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/01 15:01:03 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/21 16:52:12 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,45 +20,38 @@ int main(int ac, char *av[])
         return 1;
     }
 
-    if (av[2][0] == '\0')
+    std::ifstream MainFile(av[1]);
+    std::string ResString, line;
+    if (MainFile.is_open())
     {
-        std::cout << "No valid args.\n";
-        return 1;
-    }
-
-    std::ifstream mainFile(av[1]);
-    std::string resString, line;
-    if (mainFile.is_open())
-    {
-        while (std::getline(mainFile, line))
+        while (std::getline(MainFile, line))
         {
-            resString += replaceStr(line, av[2], av[3]);
-            if (!mainFile.eof())
-                resString += "\n";
+            ResString += replaceStr(line, av[2], av[3]);
+            if (!MainFile.eof())
+                ResString += "\n";
         }
     }
     else
     {
-        std::cout << "no file \"" << av[1] << "\" available, try to create it.\n";
+        std::cout << "no file or no valid permissions for the file \"" << av[1] << "\", try to create it or add valid permissions." << std::endl;
         return 1;
     }
 
     std::string fileName = av[1];
     fileName += ".replace";
-    std::ofstream replacedFile(fileName);
-    
-    if (replacedFile.is_open())
+    std::ofstream ReplacedFile(fileName.c_str());
+    if (ReplacedFile.is_open())
     {
-        replacedFile << resString;
+        ReplacedFile << ResString;
     }
     else
     {
-        mainFile.close();
-        std::cout << "no file \"" << av[2] << "\" available, try to create it.\n";
+        MainFile.close();
+        std::cout << "no file or no valid permissions for the file \"" << av[2] << "\", try to create it or add valid permissions." << std::endl;
         return 1;
     }
 
-
-    mainFile.close();
-    replacedFile.close();
+    MainFile.close();
+    ReplacedFile.close();
+    return 0;
 }

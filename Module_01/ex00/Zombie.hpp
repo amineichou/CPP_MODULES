@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:59:45 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/21 20:14:48 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/21 10:15:25 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,19 @@
 
 
 #include <iostream>
+#include <cstdlib>
 
 
 class Zombie {
 
-public:
-    void announce(void) {
-        std::cout << this->name << " BraiiiiiiinnnzzzZ..." << std::endl;
-    }
-
-    void setName(std::string newName)
-    {
-        this->name = newName;
-    }
-
 private:
     std::string name;
+
+public:
+    Zombie();
+    ~Zombie();
+    void announce(void);
+    void setName(std::string newName);
 };
 
 
