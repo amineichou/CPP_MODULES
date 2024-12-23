@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 14:13:55 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/22 22:13:06 by moichou          ###   ########.fr       */
+/*   Created: 2024/12/23 12:14:32 by moichou           #+#    #+#             */
+/*   Updated: 2024/12/23 12:18:19 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-int main( void ) {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
 
-    c = b;
+#include <iostream>
+#include <cmath>
 
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
+class Fixed {
+private:
+
+public:
+    
+};
+
+#endif

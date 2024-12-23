@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moichou <moichou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:14:20 by moichou           #+#    #+#             */
-/*   Updated: 2024/11/09 17:36:36 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/23 08:17:13 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 #include <iostream>
 
-#include <iostream>
-
 class Fixed {
 private:
     int fixedPoint;
+    static const int fractionNumber = 8;
 
 public:
     int getRawBits() const;
