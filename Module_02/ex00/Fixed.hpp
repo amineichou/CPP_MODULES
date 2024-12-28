@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:14:20 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/23 08:17:13 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/26 20:02:36 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed {
 private:
     int fixedPoint;
-    static const int fractionNumber = 8;
+    static const int fractionNumber;
 
 public:
     int getRawBits() const;

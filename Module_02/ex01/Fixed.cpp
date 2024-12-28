@@ -6,18 +6,22 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:08:30 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/23 09:26:15 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/27 18:09:40 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : fixedPoint(0) {
+const int Fixed::fractionNumber = 8;
+
+Fixed::Fixed() {
+    this->fixedPoint = 0;
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &obj) : fixedPoint(obj.fixedPoint) {
+Fixed::Fixed(const Fixed &obj) {
     std::cout << "Copy constructor called" << std::endl;
+    *this = obj;
 }
 
 Fixed::Fixed(const int iFixedPoint) {
@@ -52,7 +56,7 @@ void Fixed::setRawBits(int raw) {
 }
 
 float Fixed::toFloat() const {
-    return static_cast<float>(fixedPoint) / (1 << fractionNumber);
+    return (float)(fixedPoint) / (1 << fractionNumber);
 }
 
 int Fixed::toInt() const {

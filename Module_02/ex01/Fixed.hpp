@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:07:46 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/23 09:24:33 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/26 20:10:08 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed {
 private:
     int fixedPoint;
-    static const int fractionNumber = 8;
+    static const int fractionNumber;
 
 public:
     Fixed();
@@ -34,8 +34,8 @@ public:
     void setRawBits(int raw);
     float toFloat() const;
     int toInt() const;
-
-    friend std::ostream &operator<<(std::ostream &out, const Fixed &obj);
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &obj);
 
 #endif

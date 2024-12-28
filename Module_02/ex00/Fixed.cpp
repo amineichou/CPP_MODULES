@@ -6,15 +6,16 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:51:15 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/23 09:24:02 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/26 20:09:19 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+const int Fixed::fractionNumber = 8;
+
 Fixed::Fixed() {
     this->fixedPoint = 0;
-    this->fractionNumber = 8;
     std::cout << "Default constructor called" << std::endl;
 }
 
@@ -24,7 +25,9 @@ int Fixed::getRawBits() const {
 }
 
 Fixed::Fixed(const Fixed &obj) {
-    this->fixedPoint = obj.fixedPoint;
+    if (this != &obj) {
+        this->fixedPoint = obj.fixedPoint;
+    }
     std::cout << "Copy constructor called" << std::endl;
 }
 
