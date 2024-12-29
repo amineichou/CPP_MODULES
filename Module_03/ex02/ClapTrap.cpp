@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:42:05 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 15:10:50 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/29 15:32:17 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ ClapTrap::ClapTrap(const std::string &nname)
     this->attackDamage = 0;
     std::cout << "Parameterized constructor called" << std::endl;
 }
-
 
 ClapTrap::~ClapTrap()
 {
@@ -77,7 +76,6 @@ void ClapTrap::beRepaired(unsigned int amount)
     this->hitPoint += amount;
     std::cout << "ClapTrap " << this->name << " is repaired using one of enegy point." << std::endl;
 }
-
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &second)
 {

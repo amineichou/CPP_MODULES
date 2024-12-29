@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 12:13:31 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 17:39:39 by moichou          ###   ########.fr       */
+/*   Created: 2024/12/29 15:33:41 by moichou           #+#    #+#             */
+/*   Updated: 2024/12/29 17:40:49 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
-int main(void)
-{
-	FragTrap a("moichou");
-	FragTrap b("zyamli");
-	FragTrap c(a);
-    FragTrap d;
-    d = c;
+class FragTrap : public ClapTrap {
+private:
 
-    
-    a.attack("skarim");
-    a.takeDamage(4);
-    
-    b.attack("moichou");
-    b.takeDamage(30);
+public:
+    FragTrap();
+    FragTrap(const std::string &name);
+    FragTrap(const FragTrap &original);
+    ~FragTrap();
 
-    
-    c.beRepaired(10);
+    FragTrap  &operator=(const FragTrap &second);
+    void attack(const std::string &target);
 
-    a.highFivesGuys();
-
-
-    return 0;
-}
+    void highFivesGuys(void);
+};
