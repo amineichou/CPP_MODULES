@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:32:36 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 17:38:10 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/01 17:41:46 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ FragTrap::FragTrap()
     this->setHitPoint(100);
     this->setEnergyPoint(100);
     this->setAttackDamage(30);
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "FragTrap : Default constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &original) : ClapTrap(original)
 {
     *this = original;
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "FragTrap : Copy constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name)
@@ -33,12 +33,12 @@ FragTrap::FragTrap(const std::string &name)
     this->setHitPoint(100);
     this->setEnergyPoint(100);
     this->setAttackDamage(30);
-    std::cout << "Parameterized constructor called" << std::endl;
+    std::cout << "FragTrap : Parameterized constructor called" << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "FragTrap : Destructor called" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &second)
@@ -50,7 +50,7 @@ FragTrap &FragTrap::operator=(const FragTrap &second)
         this->setHitPoint(second.getHitPoint());
         this->setAttackDamage(second.getAttackDamage());
     }
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "FragTrap : Copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -61,7 +61,7 @@ void FragTrap::attack(const std::string &target)
         std::cout << "FragTrap " << this->getName() << "has no energy to make an attack to target " << target << std::endl;
         return ;
     }
-    std::cout << "FragTrap " << this->getName() << "attacks " << target << ", causing " << 1 << " points of damage!" << std::endl;
+    std::cout << "FragTrap " << this->getName() << " attacks " << target << ", causing " << 1 << " points of damage!" << std::endl;
     unsigned int currEenergyPoint = this->getEnergyPoint();
     this->setEnergyPoint(currEenergyPoint--);
 }

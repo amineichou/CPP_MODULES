@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 11:55:38 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/26 20:26:36 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/30 18:14:44 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const float iFixedPoint) {
 
 Fixed::~Fixed() {}
 
-Fixed &Fixed::operator=(const Fixed &obj) {
+Fixed Fixed::operator=(const Fixed &obj) {
     if (this != &obj) {
         fixedPoint = obj.fixedPoint;
     }

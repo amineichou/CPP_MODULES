@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:42:05 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 14:37:57 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/01 16:03:28 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ ClapTrap::ClapTrap()
     this->hitPoint = 10;
     this->energyPoint = 10;
     this->attackDamage = 0;
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap : Default constructor called" << std::endl;
 };
 
 ClapTrap::ClapTrap(const ClapTrap &original)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap : Copy constructor called" << std::endl;
     *this = original;
 }
 
@@ -33,20 +33,23 @@ ClapTrap::ClapTrap(const std::string &nname)
     this->hitPoint = 10;
     this->energyPoint = 10;
     this->attackDamage = 0;
-    std::cout << "Parameterized constructor called" << std::endl;
+    std::cout << "ClapTrap : Parameterized constructor called" << std::endl;
 }
 
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap : Destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
 {
     if (this->energyPoint == 0)
+    {
+        std::cout << "ClapTrap " << this->name << " has no energy left to make an attack!" << std::endl;
         return ;
-    std::cout << "ClapTrap " << this->name << "attacks " << target << ", causing " << 1 << " points of damage!" << std::endl;
+    }
+    std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
     this->energyPoint--;
 }
 
@@ -86,7 +89,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &second)
         this->hitPoint = second.hitPoint;
         this->attackDamage = second.attackDamage;
     }
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "ClapTrap : Copy assignment operator called" << std::endl;
     return *this;
 }
 

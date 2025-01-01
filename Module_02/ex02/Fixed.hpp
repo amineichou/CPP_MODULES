@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:14:32 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/27 15:41:49 by moichou          ###   ########.fr       */
+/*   Updated: 2024/12/30 18:14:50 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     Fixed(const float iFixedPoint);
     ~Fixed();
 
-    Fixed &operator=(const Fixed &obj);
+    Fixed operator=(const Fixed &obj);
 
     bool operator>(const Fixed &obj) const;
     bool operator<(const Fixed &obj) const;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 14:49:49 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 15:24:52 by moichou          ###   ########.fr       */
+/*   Created: 2025/01/01 17:41:29 by moichou           #+#    #+#             */
+/*   Updated: 2025/01/01 17:41:32 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ ScavTrap::ScavTrap()
     this->setHitPoint(100);
     this->setEnergyPoint(50);
     this->setAttackDamage(20);
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ScavTrap : Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &original) : ClapTrap(original)
 {
     *this = original;
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ScavTrap : Copy constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name)
@@ -33,12 +33,12 @@ ScavTrap::ScavTrap(const std::string &name)
     this->setHitPoint(100);
     this->setEnergyPoint(50);
     this->setAttackDamage(20);
-    std::cout << "Parameterized constructor called" << std::endl;
+    std::cout << "ScavTrap : Parameterized constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ScavTrap : Destructor called" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &second)
@@ -50,7 +50,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &second)
         this->setHitPoint(second.getHitPoint());
         this->setAttackDamage(second.getAttackDamage());
     }
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "ScavTrap : Copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -61,7 +61,7 @@ void ScavTrap::attack(const std::string &target)
         std::cout << "ScavTrap " << this->getName() << "has no energy to make an attack to target " << target << std::endl;
         return ;
     }
-    std::cout << "ScavTrap " << this->getName() << "attacks " << target << ", causing " << 1 << " points of damage!" << std::endl;
+    std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << 1 << " points of damage!" << std::endl;
     unsigned int currEenergyPoint = this->getEnergyPoint();
     this->setEnergyPoint(currEenergyPoint--);
 }

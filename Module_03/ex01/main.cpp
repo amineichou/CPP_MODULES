@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 12:13:31 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 15:23:04 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/01 15:32:40 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ int main(void)
 	ScavTrap a("moichou");
 	ScavTrap b("zyamli");
 	ScavTrap c(a);
-    ScavTrap d;
-    d = c;
+    ScavTrap d("skarim");
 
     
     a.attack("skarim");
-    a.takeDamage(4);
-    
-    b.attack("moichou");
-    b.takeDamage(30);
+    d.takeDamage(a.getAttackDamage());
 
-    
-    c.beRepaired(10);
+    b.attack("moichou");
+    a.takeDamage(b.getAttackDamage());
+
+    a.beRepaired(10);
+
+    d.guardGate();
 
     return 0;
 }

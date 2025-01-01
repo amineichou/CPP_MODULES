@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 14:14:20 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/30 17:35:28 by moichou          ###   ########.fr       */
+/*   Created: 2024/12/29 19:39:47 by moichou           #+#    #+#             */
+/*   Updated: 2024/12/29 21:32:21 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <iostream>
 
-class Fixed {
+#include "Animal.hpp"
+
+class Dog : public Animal {
 private:
-    int fixedPoint;
-    static const int fractionNumber;
 
 public:
-    int getRawBits() const;
-    Fixed();
-    Fixed(const Fixed &obj);
-    Fixed &operator=(const Fixed &obj);
-    ~Fixed();
+    Dog();
+    Dog(const std::string &type);
+    Dog(const Dog &original);
+    ~Dog();
+
+    Dog &operator=(const Dog &second);
+
 };
 
 
