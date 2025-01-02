@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:39:00 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/02 11:31:34 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/02 12:27:35 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ Dog::Dog()
 
 Dog::Dog(const std::string &type)
 {
-    std::cout << "Dog : Copy constructor called" << std::endl;
+    this->type = type;
+    std::cout << "Dog : Parameterized constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &original)
+Dog::Dog(const Dog &original) : Animal(original)
 {
+    *this = original;
     std::cout << "Dog : Copy constructor called" << std::endl;
 }
 

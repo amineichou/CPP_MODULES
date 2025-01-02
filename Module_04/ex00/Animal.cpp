@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:02:57 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 18:49:00 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/02 12:30:11 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,3 +44,17 @@ Animal &Animal::operator=(const Animal &second)
     return *this;
 }
 
+std::string Animal::getType(void) const 
+{
+    return this->type;
+}
+
+std::ostream &operator<<(std::ostream &out, const Animal &A)
+{
+    out << A.getType();
+    return out;
+}
+
+void Animal::makeSound() const
+{    
+}

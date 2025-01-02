@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:03:01 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 18:45:15 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/02 12:13:28 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,15 @@ public:
 
     Animal &operator=(const Animal &original);
 
+    std::string getType() const;
+
+    void makeSound() const;
+
 protected:
     std::string type;
 
 };
 
+std::ostream &operator<<(std::ostream &out, const Animal &A);
 
 #endif

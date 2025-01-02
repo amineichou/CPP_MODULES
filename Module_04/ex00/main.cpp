@@ -6,11 +6,12 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:49:08 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 19:43:46 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/02 11:45:41 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Dog.hpp"
 
 int main()
 {
