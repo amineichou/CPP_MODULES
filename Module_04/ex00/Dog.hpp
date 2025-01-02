@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:39:47 by moichou           #+#    #+#             */
-/*   Updated: 2024/12/29 21:32:21 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/02 11:18:22 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 
     Dog &operator=(const Dog &second);
 
+    void makeSound() const;
 };
 
 
