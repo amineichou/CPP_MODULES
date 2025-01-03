@@ -6,18 +6,19 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:32:36 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 12:26:48 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/03 19:49:34 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 private:
-
+    Brain *brain;
 public:
     Cat();
     Cat(const Cat &original);

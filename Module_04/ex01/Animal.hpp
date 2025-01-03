@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 19:32:36 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 12:26:48 by moichou          ###   ########.fr       */
+/*   Created: 2024/12/29 18:03:01 by moichou           #+#    #+#             */
+/*   Updated: 2025/01/03 15:36:11 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
 
-class Cat : public Animal {
+class Animal {
 private:
 
 public:
-    Cat();
-    Cat(const Cat &original);
-    Cat(const std::string &type);
-    ~Cat();
+    Animal();
+    Animal(const Animal &original);
+    Animal(const std::string &type);
+    virtual ~Animal();
 
-    Cat &operator=(const Cat &second);
+    Animal &operator=(const Animal &original);
 
-    void makeSound() const;
+    std::string getType() const;
+
+    virtual void makeSound() const;
+
+protected:
+    std::string type;
+
 };
+
+std::ostream &operator<<(std::ostream &out, const Animal &A);
 
 #endif
