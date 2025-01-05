@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:34:37 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 19:50:13 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/04 17:08:06 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,8 @@ void Cat::makeSound() const
     std::cout << "Meaw" << std::endl;
 }
 
+
+std::string Cat::getType(void) const 
+{
+    return this->type;
+}

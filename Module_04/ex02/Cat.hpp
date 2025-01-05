@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:32:36 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 19:49:34 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/04 17:08:17 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ public:
     Cat &operator=(const Cat &second);
 
     void makeSound() const;
+
+    std::string getType(void) const;
 };
 
 #endif

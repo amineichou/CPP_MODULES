@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:39:00 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 20:44:43 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/04 17:07:35 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ Dog &Dog::operator=(const Dog &second)
     if (this != &second)
     {
         this->type = second.type;
-
-        // Clean up the existing Brain object
-        delete this->brain;
-
-        // Deep copy of the new Brain object
         this->brain = new Brain(*second.brain);
     }
     return *this;
@@ -57,4 +52,9 @@ Dog &Dog::operator=(const Dog &second)
 void Dog::makeSound() const
 {
     std::cout << "Woof woof" << std::endl;
+}
+
+std::string Dog::getType(void) const 
+{
+    return this->type;
 }
