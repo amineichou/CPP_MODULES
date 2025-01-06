@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:49:08 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 11:23:46 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/06 16:06:58 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ int main()
     j->makeSound();
     meta->makeSound();
 
-
     delete meta;
     delete j;
     delete i;
-
     return 0;
 }

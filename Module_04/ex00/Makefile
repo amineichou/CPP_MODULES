@@ -2,7 +2,7 @@ NAME = main
 
 SRCS = Animal.cpp Dog.cpp Cat.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 COMPILER = c++
 
 all : $(NAME)
