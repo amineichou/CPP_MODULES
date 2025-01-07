@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:02:57 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 17:04:11 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/06 23:02:06 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Animal &Animal::operator=(const Animal &second)
     return *this;
 }
 
-std::string Animal::getType(void) const 
+std::string Animal::getType(void) const
 {
     return this->type;
 }

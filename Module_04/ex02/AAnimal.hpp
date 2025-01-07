@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:03:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/04 15:32:03 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 06:21:09 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 
     AAnimal &operator=(const AAnimal &original);
 
-    virtual std::string getType() const = 0;
+    std::string getType() const;
 
     virtual void makeSound() const = 0;
 

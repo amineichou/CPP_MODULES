@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:13:43 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 15:31:53 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 06:26:32 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Brain::~Brain()
 
 Brain &Brain::operator=(const Brain &second)
 {
+    std::cout << "Brain : Copy assignment operator called" << std::endl;
     if (this != &second)
     {
         this->ideas = second.ideas;
