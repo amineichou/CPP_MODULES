@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:39:00 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/06 15:59:34 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 07:59:44 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@ Dog::Dog()
 {
     this->type = "Dog";
     std::cout << "Dog : Default constructor called" << std::endl;
-}
-
-Dog::Dog(const std::string &type)
-{
-    this->type = type;
-    std::cout << "Dog : Parameterized constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &original) : Animal(original)

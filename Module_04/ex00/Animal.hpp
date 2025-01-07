@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:03:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/07 03:56:51 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:00:07 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include <string>
 
 class Animal {
-private:
-
 public:
     Animal();
     Animal(const Animal &original);
@@ -33,7 +31,6 @@ public:
 
 protected:
     std::string type;
-
 };
 
 std::ostream &operator<<(std::ostream &out, const Animal &A);

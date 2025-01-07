@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:32:36 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 14:44:12 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 15:57:56 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ private:
 public:
     Cat();
     Cat(const Cat &original);
-    Cat(const std::string &type);
+    Cat &operator=(const Cat &second);
     ~Cat();
 
-    Cat &operator=(const Cat &second);
 
     void makeSound() const;
 };

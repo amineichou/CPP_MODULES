@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:02:57 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 17:04:31 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:43:44 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ std::ostream &operator<<(std::ostream &out, const Animal &A)
 
 void Animal::makeSound() const
 {
+    std::cout << "Animal Sound" << std::endl;
 }

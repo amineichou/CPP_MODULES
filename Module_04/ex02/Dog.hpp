@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:39:47 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/04 17:06:44 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 07:59:58 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ private:
 
 public:
     Dog();
-    Dog(const std::string &type);
     Dog(const Dog &original);
     ~Dog();
 

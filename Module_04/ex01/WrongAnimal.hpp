@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 19:39:47 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/07 15:58:03 by moichou          ###   ########.fr       */
+/*   Created: 2025/01/07 16:41:01 by moichou           #+#    #+#             */
+/*   Updated: 2025/01/07 16:51:39 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONGANIMAL
+#define WRONGANIMAL
 
+#include <iostream>
+#include <string>
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog : public Animal {
-private:
-    Brain *brain;
-
+class WrongAnimal {
 public:
-    Dog();
-    Dog(const Dog &original);
-    Dog &operator=(const Dog &second);
-    ~Dog();
+    WrongAnimal();
+    WrongAnimal(const WrongAnimal &original);
+    WrongAnimal(const std::string &type);
+    virtual ~WrongAnimal();
 
+    WrongAnimal &operator=(const WrongAnimal &original);
+
+    std::string getType() const;
 
     void makeSound() const;
+
+protected:
+    std::string type;
 };
 
+std::ostream &operator<<(std::ostream &out, const WrongAnimal &A);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:32:36 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/03 12:26:48 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 16:45:52 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@
 #include "Animal.hpp"
 
 class Cat : public Animal {
-private:
-
 public:
     Cat();
     Cat(const Cat &original);
-    Cat(const std::string &type);
     ~Cat();
 
     Cat &operator=(const Cat &second);

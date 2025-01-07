@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:13:43 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/07 06:26:32 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 18:23:09 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 Brain::Brain()
 {
-    this->ideas = new std::string[100];
+    for (int i = 0; i < 100; i++)
+    {
+        this->ideas[i] = "brilliant";
+    }
     std::cout << "Brain : Constructor called" << std::endl;
 }
 Brain::Brain(const Brain &original)
@@ -24,7 +27,6 @@ Brain::Brain(const Brain &original)
 }
 Brain::~Brain()
 {
-    delete [] this->ideas;
     std::cout << "Brain : Destructor called" << std::endl;
 }
 
@@ -33,7 +35,10 @@ Brain &Brain::operator=(const Brain &second)
     std::cout << "Brain : Copy assignment operator called" << std::endl;
     if (this != &second)
     {
-        this->ideas = second.ideas;
+        for (int i = 0; i < 100; i++)
+        {
+            this->ideas[i] = second.ideas[i];
+        }
     }
     return *this;
 }

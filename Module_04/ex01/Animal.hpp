@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:03:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/01/07 03:57:19 by moichou          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:01:34 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include <string>
 
 class Animal {
-private:
-
 public:
     Animal();
     Animal(const Animal &original);
