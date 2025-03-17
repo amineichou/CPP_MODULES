@@ -1,8 +1,7 @@
-
 NAME = bureaucrat
 
-SRC = main.cpp Bureaucrat.cpp
-HEADERS = Bureaucrat.hpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp
+HEADERS = Bureaucrat.hpp AForm.hpp
 OBJ = $(SRC:.cpp=.o)
 
 COMPILER = c++

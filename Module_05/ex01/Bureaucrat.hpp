@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 14:36:29 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/15 02:23:39 by moichou          ###   ########.fr       */
+/*   Updated: 2025/03/16 22:57:47 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include <iostream>
 #include <string>
 
-
-class Bureaucrat {
+class Bureaucrat
+{
 private:
     const std::string name;
     int grade;
@@ -38,21 +38,21 @@ public:
     void incrementGrade();
     void decrementGrade();
 
-    class GradeTooHighException : public std::exception {
-    public:;
+    class GradeTooHighException : public std::exception
+    {
+    public:
         const char *what() const throw();
-    } gradeTooHighException;
+    };
 
-    class GradeTooLowException : public std::exception {
-    public:;
+    class GradeTooLowException : public std::exception
+    {
+    public:
         const char *what() const throw();
-    } gradeTooLowException;
+    };
 
     void signForm(class Form &form);
-    
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
-
 
 #endif
