@@ -6,14 +6,32 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:25:50 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/17 03:26:31 by moichou          ###   ########.fr       */
+/*   Updated: 2025/04/28 21:26:02 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(void)
 {
     // tests
-    
+    try {
+        Bureaucrat A("amine", 22);
+        ShrubberyCreationForm Plant("amine");
+        RobotomyRequestForm Robotomy("amine");
+        PresidentialPardonForm Pardon("amine");
+
+        Robotomy.beSigned(A);
+        Plant.beSigned(A);
+
+        Robotomy.execute(A);
+        Plant.execute(A);
+        Pardon.execute(A);
+    }
+    catch (std::exception &e){
+        std::cout << "caught exception : " << e.what() << std::endl;
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 01:52:50 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/17 01:53:23 by moichou          ###   ########.fr       */
+/*   Updated: 2025/04/28 21:14:22 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-class Bureaucrat;
+class Bureaucrat; 
 
 class AForm
 {
@@ -49,7 +49,16 @@ public:
         const char *what() const throw();
     };
 
-    virtual void beSigned(const Bureaucrat &bureaucrat) = 0;
+    class FormNotSignedException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
+
+    void beSigned(const Bureaucrat &bureaucrat);
+    virtual void execute(const Bureaucrat &executor) const = 0;
+
+    void CheckExec(const Bureaucrat &executor) const;
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &form);

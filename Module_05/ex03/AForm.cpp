@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 01:34:52 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/17 01:47:59 by moichou          ###   ########.fr       */
+/*   Updated: 2025/03/21 17:41:03 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ const char *AForm::GradeTooLowException::what() const throw()
     return "Grade is too low";
 }
 
+const char *AForm::FormNotSignedException::what() const throw()
+{
+    return "Form is not signed";
+}
+
 std::ostream &operator<<(std::ostream &out, const AForm &form)
 {
     out << "Form " << form.getName() << " is ";
@@ -76,4 +81,19 @@ std::ostream &operator<<(std::ostream &out, const AForm &form)
         out << "not signed";
     out << " and requires grade " << form.getGradeReqSign() << " to be signed and grade " << form.getGradeReqExec() << " to be executed." << std::endl;
     return out;
+}
+
+void AForm::beSigned(const Bureaucrat &bureaucrat)
+{
+    if (bureaucrat.getGrade() > this->gradeReqSign)
+        throw Bureaucrat::GradeTooLowException();
+    this->isSigned = true;
+}
+
+void AForm::checkExecution(const Bureaucrat &executor) const
+{
+    if (!this->isSigned)
+        throw AForm::FormNotSignedException();
+    if (executor.getGrade() > this->gradeReqExec)
+        throw Bureaucrat::GradeTooLowException();
 }

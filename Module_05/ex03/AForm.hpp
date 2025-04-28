@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 00:28:45 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/17 01:23:33 by moichou          ###   ########.fr       */
+/*   Created: 2025/03/17 01:52:50 by moichou           #+#    #+#             */
+/*   Updated: 2025/03/21 17:40:23 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-class Bureaucrat;
+class Bureaucrat; 
 
 class AForm
 {
+protected:
+    void checkExecution(const Bureaucrat &executor) const;
+
 private:
     const std::string name;
     bool isSigned;
@@ -49,7 +52,14 @@ public:
         const char *what() const throw();
     };
 
-    virtual void beSigned(const Bureaucrat &bureaucrat) = 0;
+    class FormNotSignedException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
+
+    void beSigned(const Bureaucrat &bureaucrat);
+    virtual void execute(const Bureaucrat &executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &form);
