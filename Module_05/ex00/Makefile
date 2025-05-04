@@ -1,8 +1,6 @@
-
 NAME = bureaucrat
 
 SRC = main.cpp Bureaucrat.cpp
-HEADERS = Bureaucrat.hpp
 OBJ = $(SRC:.cpp=.o)
 
 COMPILER = c++
@@ -14,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(COMPILER) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp Bureaucrat.hpp
 	$(COMPILER) $(FLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 01:52:50 by moichou           #+#    #+#             */
-/*   Updated: 2025/04/28 21:14:22 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/04 16:11:20 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ private:
     const int gradeReqExec;
 
 public:
+    AForm();
     AForm(const std::string name, const int gradeReqSign, const int gradeReqExec);
     AForm(const AForm &src);
     ~AForm();

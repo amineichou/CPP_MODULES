@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:25:50 by moichou           #+#    #+#             */
-/*   Updated: 2025/04/28 21:26:02 by moichou          ###   ########.fr       */
+/*   Updated: 2025/04/29 16:43:06 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int main(void)
 
         Robotomy.beSigned(A);
         Plant.beSigned(A);
+
+        std::cout << A << std::endl;
+        std::cout << Plant << std::endl;
+        std::cout << Robotomy << std::endl;
 
         Robotomy.execute(A);
         Plant.execute(A);

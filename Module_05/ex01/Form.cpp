@@ -6,17 +6,22 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 19:44:31 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/15 02:09:45 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/04 16:10:47 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(const std::string n_name, const int n_gradeReqSign, const int n_gradeReqExec) : name(n_name), gradeReqSign(n_gradeReqSign), gradeReqExec(n_gradeReqExec)
+Form::Form() : name("defaultFormValues1_1"), gradeReqSign(1), gradeReqExec(1)
 {
-    if (n_gradeReqSign < 1 || n_gradeReqExec < 1)
+    this->isSigned = false;
+}
+
+Form::Form(const std::string in_name, const int in_gradeReqSign, const int in_gradeReqExec) : name(in_name), gradeReqSign(in_gradeReqSign), gradeReqExec(in_gradeReqExec)
+{
+    if (in_gradeReqSign < 1 || in_gradeReqExec < 1)
         throw Form::GradeTooHighException();
-    if (n_gradeReqSign > 150 || n_gradeReqExec > 150)
+    if (in_gradeReqSign > 150 || in_gradeReqExec > 150)
         throw Form::GradeTooLowException();
     this->isSigned = false;
 }
@@ -36,7 +41,7 @@ Form &Form::operator=(const Form &source)
     return *this;
 }
 
-const std::string &Form::getName() const
+const std::string Form::getName() const
 {
     return this->name;
 }

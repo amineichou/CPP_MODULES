@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:54:07 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/20 02:04:01 by moichou          ###   ########.fr       */
+/*   Updated: 2025/04/29 16:40:00 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ public:
     };
 
     void signForm(class AForm &form);
+    
+    void executeForm(class AForm &form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);

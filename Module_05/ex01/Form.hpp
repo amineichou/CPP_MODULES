@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:51:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/15 02:29:08 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/04 16:11:06 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ private:
     const int gradeReqExec;
 
 public:
+    Form();
     Form(const std::string name, const int gradeReqSign, const int gradeReqExec);
     Form(const Form &src);
     ~Form();
     Form &operator=(const Form &src);
-
-    const std::string &getName() const;
+    
+    
+    const std::string getName() const;
     bool getIsSigned() const;
     int getGradeReqSign() const;
     int getGradeReqExec() const;

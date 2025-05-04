@@ -6,11 +6,16 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 01:34:52 by moichou           #+#    #+#             */
-/*   Updated: 2025/04/28 21:16:16 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/04 16:11:14 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+
+AForm::AForm() : name("defaultFormValues1_1"), gradeReqSign(1), gradeReqExec(1)
+{
+    this->isSigned = false;
+}
 
 AForm::AForm(const std::string n_name, const int n_gradereqsign, const int n_gradereqexec) : name(n_name), gradeReqSign(n_gradereqsign), gradeReqExec(n_gradereqexec)
 {
@@ -79,7 +84,7 @@ std::ostream &operator<<(std::ostream &out, const AForm &form)
         out << "signed";
     else
         out << "not signed";
-    out << " and requires grade " << form.getGradeReqSign() << " to be signed and grade " << form.getGradeReqExec() << " to be executed." << std::endl;
+    out << " and requires grade " << form.getGradeReqSign() << " to be signed and grade " << form.getGradeReqExec() << " to be executed.";
     return out;
 }
 

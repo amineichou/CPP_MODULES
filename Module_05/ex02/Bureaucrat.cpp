@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 17:55:30 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/20 00:41:57 by moichou          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : name("default")
@@ -56,7 +44,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &source)
 
 const std::string Bureaucrat::getName() const
 {
-    return this->name;
+    return this->name;  
 }
 
 int Bureaucrat::getGrade() const
@@ -73,7 +61,7 @@ void Bureaucrat::incrementGrade()
 
 void Bureaucrat::decrementGrade()
 {
-    if (this->grade == 150)
+    if (this->grade == 150) 
         throw Bureaucrat::GradeTooLowException();
     this->grade++;
 }
@@ -91,7 +79,7 @@ void Bureaucrat::signForm(AForm &form)
         if (this->grade > form.getGradeReqSign())
             throw AForm::GradeTooLowException();
         form.beSigned(*this);
-        std::cout << this->name << " signs " << form.getName() << std::endl;
+        std::cout << this->name << " signed " << form.getName() << std::endl;
     }
     catch (std::exception &e)
     {
