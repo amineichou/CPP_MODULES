@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:55:23 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/20 00:40:49 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/23 16:16:10 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class RobotomyRequestForm : public AForm
     private:
         std::string target;
     public:
+        RobotomyRequestForm();
         RobotomyRequestForm(const std::string &target);
         RobotomyRequestForm(const RobotomyRequestForm &src);
         ~RobotomyRequestForm();
@@ -33,6 +34,7 @@ class RobotomyRequestForm : public AForm
             public:
                 const char *what() const throw();
         };
+
 };
 
 

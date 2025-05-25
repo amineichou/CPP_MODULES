@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 14:35:44 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/04 16:08:27 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/23 19:22:14 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@ Bureaucrat::Bureaucrat(const std::string n_name, int n_grade) : name(n_name)
 }
 
 
-Bureaucrat::Bureaucrat(const Bureaucrat &source) : name(source.name)
-{
-    *this = source;
-}
 
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Bureaucrat " << this->name << " is dead." << std::endl;
+}
+
+
+Bureaucrat::Bureaucrat(const Bureaucrat &source) : name(source.name)
+{
+    *this = source;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &source)
@@ -58,14 +60,14 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::incrementGrade()
 {
     if (this->grade == 1)
-    throw Bureaucrat::GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
     this->grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
     if (this->grade == 150)
-    throw Bureaucrat::GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
     this->grade++;
 }
 
@@ -75,8 +77,7 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
     return "Grade is too high";
 }
 
-const char *Bureaucrat::GradeTooLowException::what() const throw()
-{
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low";
 }
 
@@ -84,5 +85,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
     out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
+    
     return out;
 }
+

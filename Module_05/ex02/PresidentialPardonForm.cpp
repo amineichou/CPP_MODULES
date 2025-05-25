@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:52:31 by moichou           #+#    #+#             */
-/*   Updated: 2025/04/28 21:16:48 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/23 16:15:36 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 PresidentialPardonForm::PresidentialPardonForm() : AForm("default", 25, 5)
 {
     this->target = "default";
+    std::cout << "PresidentialPardonForm with target [ " << this->target << " ] is started." << std::endl;
 }
 
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string n_target) : AForm("default", 25, 5)
 {
     this->target = n_target;
+    std::cout << "PresidentialPardonForm with target [ " << this->target << " ] is started." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &source) : AForm("default", 25, 5)
@@ -31,6 +33,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &sou
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
+    std::cout << "PresidentialPardonForm with target [ " << this->target << " ] is finished." << std::endl;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &source)
@@ -39,13 +42,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
     return *this;
 }
 
-void PresidentialPardonForm::action(void) const
-{
-    std::cout << this->target << "has been pardoned by Zaphod Beeblebrox." << std::endl;
-}
-
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
-    AForm::CheckExec(executor);
-    std::cout << this->target << " has been pardoned by " << executor.getName() << std::endl;
+    AForm::checkExecution(executor);
+    std::cout << this->target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

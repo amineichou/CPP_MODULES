@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:51:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/04 16:11:06 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/23 18:52:05 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
     ~Form();
     Form &operator=(const Form &src);
     
-    
+    // getters //
     const std::string getName() const;
     bool getIsSigned() const;
     int getGradeReqSign() const;

@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 14:36:29 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/04 15:16:17 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/20 12:32:07 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ public:
     };
 };
 
+
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
+
 
 #endif

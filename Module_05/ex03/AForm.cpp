@@ -6,19 +6,21 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 01:34:52 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/21 17:41:03 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/22 18:40:42 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(const std::string n_name, const int n_gradereqsign, const int n_gradereqexec) : name(n_name), gradeReqSign(n_gradereqsign), gradeReqExec(n_gradereqexec)
+AForm::AForm(const std::string n_name, const int n_gradereqsign, const int n_gradereqexec) : 
+name(n_name), gradeReqSign(n_gradereqsign), gradeReqExec(n_gradereqexec)
 {
     if (n_gradereqsign < 1 || n_gradereqexec < 1)
         throw AForm::GradeTooHighException();
     if (n_gradereqsign > 150 || n_gradereqexec > 150)
         throw AForm::GradeTooLowException();
     this->isSigned = false;
+    std::cout << "Form [ " << this->name << " ] is out." << std::endl;
 }
 
 AForm::AForm(const AForm &source) : name(source.name), gradeReqSign(source.gradeReqSign), gradeReqExec(source.gradeReqExec)
@@ -28,6 +30,7 @@ AForm::AForm(const AForm &source) : name(source.name), gradeReqSign(source.grade
 
 AForm::~AForm()
 {
+    std::cout << "Form [ " << this->name << " ] is burned." << std::endl;
 }
 
 AForm &AForm::operator=(const AForm &source)
@@ -79,7 +82,8 @@ std::ostream &operator<<(std::ostream &out, const AForm &form)
         out << "signed";
     else
         out << "not signed";
-    out << " and requires grade " << form.getGradeReqSign() << " to be signed and grade " << form.getGradeReqExec() << " to be executed." << std::endl;
+    out << " and requires grade " << form.getGradeReqSign() << " to be signed and grade " 
+    << form.getGradeReqExec() << " to be executed." << std::endl;
     return out;
 }
 

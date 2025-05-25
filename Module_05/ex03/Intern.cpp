@@ -6,20 +6,24 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 17:13:58 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/21 17:22:59 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/23 15:29:41 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Intern::Intern() {}
+Intern::Intern() {
+    std::cout << "Intern with address [ " << this << " ] is hired and starts working." << std::endl;
+}
 
 Intern::Intern(const Intern &src)
 {
     *this = src;
 }
 
-Intern::~Intern() {}
+Intern::~Intern() {
+    std::cout << "Intern with address [ " << this << " ] is fired." << std::endl;
+}
 
 Intern &Intern::operator=(const Intern &src)
 {
@@ -27,18 +31,27 @@ Intern &Intern::operator=(const Intern &src)
     return *this;
 }
 
-AForm *Intern::makeForm(const std::string &name, const std::string &target)
-{
-    std::string formNames[] = {
-        "shrubbery creation",
-        "robotomy request",
-        "presidential pardon"};
 
-    for (size_t i = 0; i < sizeof(formNames) / sizeof(*formNames); i++)
-    {
-        if (name == formNames[i])
+const char *Intern::CouldntMakeFormException::what() const throw()
+{
+    return "Intern faild to create the form. maybe hire a new one.";
+}
+
+// if the name is not valid a NULL will be returned,  so handliing it outside this func pls
+AForm *Intern:: makeForm(const std::string &name, const std::string &target)
+{
+
+    std::vector<std::string> validFormNames;
+
+    validFormNames.push_back("presidential pardon");
+    validFormNames.push_back("robotomy request");
+    validFormNames.push_back("shrubbery creation");
+
+    for (size_t i = 0; i < validFormNames.size(); i++)
+    {   
+        if (name == validFormNames[i])
         {
-            std::cout << "Intern creates " << name << std::endl;
+            std::cout << "Intern creates " << name << " for " << target << std::endl;
 
             switch (i)
             {
@@ -51,6 +64,6 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
             }
         }
     }
-    std::cout << "Intern cannot create " << name << std::endl;
+    throw Intern::CouldntMakeFormException();
     return NULL;
 }

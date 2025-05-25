@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:55:30 by moichou           #+#    #+#             */
-/*   Updated: 2025/03/20 00:41:57 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/22 15:09:19 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Bureaucrat::Bureaucrat() : name("default")
 {
     this->grade = 150;
-    std::cout << "Bureaucrat " << this->name << " is born." << std::endl;
+    std::cout << "Bureaucrat [ " << this->name << " ] is born." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string n_name, int n_grade) : name(n_name)
@@ -25,7 +25,7 @@ Bureaucrat::Bureaucrat(const std::string n_name, int n_grade) : name(n_name)
     if (n_grade > 150)
         throw Bureaucrat::GradeTooLowException();
     this->grade = n_grade;
-    std::cout << "Bureaucrat " << this->name << " is born." << std::endl;
+    std::cout << "Bureaucrat [ " << this->name << " ] is born." << std::endl;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
@@ -45,7 +45,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &source) : name(source.name)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat " << this->name << " is dead." << std::endl;
+    std::cout << "Bureaucrat  [ " << this->name << " ] is dead." << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &source)

@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:53:19 by moichou           #+#    #+#             */
-/*   Updated: 2025/04/28 20:59:56 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/22 14:34:17 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm(const PresidentialPardonForm &source);
         ~PresidentialPardonForm();
         PresidentialPardonForm &operator=(const PresidentialPardonForm &source);
-        void execute(const Bureaucrat &executor) const;
 
-        void action(void) const;
+        void execute(const Bureaucrat &executor) const;
 };
 
 
