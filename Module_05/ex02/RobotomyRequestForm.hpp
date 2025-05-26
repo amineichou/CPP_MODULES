@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:55:23 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/23 16:16:10 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/26 15:20:35 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class RobotomyRequestForm : public AForm
         ~RobotomyRequestForm();
         RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
         void execute(const Bureaucrat &executor) const;
-
-        void action() const;
 
         class FileNotOpenedException : public std::exception
         {

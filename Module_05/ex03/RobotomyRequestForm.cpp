@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:55:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/23 16:16:03 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/26 15:19:59 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
     AForm::checkExecution(executor);
     std::cout << "*drilling noises* ";
+    srand((unsigned int)time(0));
     if (rand() % 2)
         std::cout << this->target << " has been robotomized successfully" << std::endl;
     else
@@ -49,13 +50,4 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 const char *RobotomyRequestForm::FileNotOpenedException::what() const throw()
 {
     return ("Error: could not open file");
-}
-
-void RobotomyRequestForm::action() const
-{
-    std::cout << "*drilling noises* ";
-    if (rand() % 2)
-        std::cout << this->target << " has been robotomized successfully" << std::endl;
-    else
-        std::cout << this->target << " robotomization failed" << std::endl;
 }
