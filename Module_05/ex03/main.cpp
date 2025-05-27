@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:25:50 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/23 16:44:45 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/27 17:06:57 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,6 @@ int main(void)
     catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
+
+    // end :)
 }
