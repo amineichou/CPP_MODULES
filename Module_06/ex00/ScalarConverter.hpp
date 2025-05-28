@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:10 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/27 10:32:06 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/28 17:38:36 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 
 #include <iostream>
 
+#include <cstdlib>
+
+
+#define MAX_INT 2147483647
+#define MIN_INT -2147483648
+
+#define MAX_FLOAT 3.402823466e+38F
+#define MIN_FLOAT -3.402823466e+38F
+
+#define MAX_DOUBLE 1.7976931348623157e+308
+#define MIN_DOUBLE -1.7976931348623157e+308
 
 
 class ScalarConverter {
