@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/28 18:55:59 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/29 11:35:49 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,31 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &othr)
     return *this;
 }
 
-void ScalarConverter::convert(const std::string &ltr)
+void ScalarConverter::checkValidInput(std::string ltr)
 {
-    if (ltr.empty() || ltr.length() == 0)
-        throw "empty string";
+    if (ltr.empty())
+        throw "Invalid input";
 
+    for (size_t i = 0; i < ltr.length(); i++)
+    {
+        if (!std::isdigit(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.')
+            throw "Invalid input";
+    }
+}
+
+void ScalarConverter::convert(const std::string &ltr)
+{   
     char *ltrcstr = (char *)ltr.c_str();
     
     if (ltrcstr[0] == '-' || ltrcstr[0] == '+')
-    {   
+    {
         if (ltrcstr[1] == '\0')
             throw "Invalid input";
     }
 
     int c = std::atoi(ltrcstr);
 
-    if (ltr.length() > 1 || c < 0 || c > 127)
+    if ( c < 0 || c > 127)
         std::cout << "char: impossible" << std::endl;
     else if (!std::isprint(c))
         std::cout << "char: Non displayable" << std::endl;

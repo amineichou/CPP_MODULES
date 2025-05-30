@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:10 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/28 17:38:36 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/29 11:21:12 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ public:
 
     static void convert(const std::string &ltr);
 
+    void checkValidInput(std::string ltr);
 
 
 };

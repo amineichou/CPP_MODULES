@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:21:02 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/28 18:06:46 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/29 11:21:04 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(int argc, char **argv)
     ScalarConverter converter;
     
     try {
+        converter.checkValidInput(argv[1]);
         converter.convert(argv[1]);
     } catch (std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
