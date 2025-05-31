@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/31 10:32:52 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:13:31 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool isNumber(std::string ltr)
 {
     for (size_t i = 0; i < ltr.length(); i++)
     {
-        if (!std::isdigit(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.')
+        if (!std::isdigit(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.' && ltr[i] != 'f')
             return false;
     }
     return true;
@@ -59,9 +59,6 @@ bool isNumber(std::string ltr)
 void ScalarConverter::convert(const std::string &ltr)
 {
     char *ltrcstr = (char *)ltr.c_str();
-
-    if (ltr[0] == '-' || ltr[0] == '+')
-        *ltrcstr += 1;
 
     int charPresentaion;
 
@@ -82,7 +79,7 @@ void ScalarConverter::convert(const std::string &ltr)
 
     float floatPresentaion = std::atof(ltrcstr);
 
-    if (floatPresentaion < MIN_FLOAT || floatPresentaion > MAX_FLOAT)
+    if (floatPresentaion < MIN_FLOAT || floatPresentaion > MAX_FLOAT || !isNumber(ltr))
         std::cout << "float: impossible" << std::endl;
     else
     {
@@ -94,7 +91,7 @@ void ScalarConverter::convert(const std::string &ltr)
 
     double doublePresentaion = std::atof(ltrcstr);
 
-    if (doublePresentaion < MIN_DOUBLE || doublePresentaion > MAX_DOUBLE)
+    if (doublePresentaion < MIN_DOUBLE || doublePresentaion > MAX_DOUBLE || !isNumber(ltr))
         std::cout << "double: impossible" << std::endl;
     else
     {

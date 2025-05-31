@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:10 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/31 10:31:02 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:10:05 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 
 
 #define MAX_INT std::numeric_limits<int>::max()
-#define MIN_INT std::numeric_limits<int>::min()
+#define MIN_INT -std::numeric_limits<int>::max()
 
-#define MAX_FLOAT std::numeric_limits<double>::max()
-#define MIN_FLOAT std::numeric_limits<float>::min()
+#define MAX_FLOAT std::numeric_limits<float>::max()
+#define MIN_FLOAT -std::numeric_limits<float>::max()
 
 #define MAX_DOUBLE std::numeric_limits<double>::max()
-#define MIN_DOUBLE std::numeric_limits<double>::min()
+#define MIN_DOUBLE -std::numeric_limits<double>::max()
 
 class ScalarConverter {
 public:
