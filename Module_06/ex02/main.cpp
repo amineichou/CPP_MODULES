@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:38:22 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 15:54:07 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:21:05 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,18 @@ void identify(Base& p)
 
 int main(void)
 {
-    Base *base = generate();
-    if (base)
+
+    // test
+
+    Base *randomBase = generate();
+    if (randomBase)
     {
-        identify(base);
-        identify(*base);
-        delete base;
+        identify(randomBase);
+        identify(*randomBase);
+        delete randomBase;
     }
     else
-    {
         std::cout << "generate object faild successfuly hh" << std::endl;
-    }
 
     return 0;
 }
