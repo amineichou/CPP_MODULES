@@ -6,9 +6,14 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:37:12 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 13:37:18 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/30 20:51:16 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "B.hpp"
 
+
+B::~B()
+{
+    // std::cout << "[B] Destructor called." << std::endl;
+}

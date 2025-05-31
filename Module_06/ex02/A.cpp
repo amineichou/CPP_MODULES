@@ -6,8 +6,13 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:37:37 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 13:37:44 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/30 20:50:31 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "A.hpp"
+
+A::~A()
+{
+    // std::cout << "[A] Destructor called." << std::endl;
+}

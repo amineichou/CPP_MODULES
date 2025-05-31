@@ -6,8 +6,13 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:35:16 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 13:35:22 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/30 20:51:24 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+
+Base::~Base()
+{
+    // std::cout << "[Base] Destructor called." << std::endl;
+}

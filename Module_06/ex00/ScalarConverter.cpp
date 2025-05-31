@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 11:35:49 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/31 10:32:52 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,62 +31,76 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &othr)
     return *this;
 }
 
-void ScalarConverter::checkValidInput(std::string ltr)
+void ScalarConverter::checkValidInput(std::string ltr) const
 {
     if (ltr.empty())
         throw "Invalid input";
 
+
     for (size_t i = 0; i < ltr.length(); i++)
     {
-        if (!std::isdigit(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.')
+        if (!std::isalnum(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.')
             throw "Invalid input";
     }
 }
 
-void ScalarConverter::convert(const std::string &ltr)
-{   
-    char *ltrcstr = (char *)ltr.c_str();
-    
-    if (ltrcstr[0] == '-' || ltrcstr[0] == '+')
+
+bool isNumber(std::string ltr)
+{
+    for (size_t i = 0; i < ltr.length(); i++)
     {
-        if (ltrcstr[1] == '\0')
-            throw "Invalid input";
+        if (!std::isdigit(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.')
+            return false;
     }
+    return true;
+}
 
-    int c = std::atoi(ltrcstr);
 
-    if ( c < 0 || c > 127)
+void ScalarConverter::convert(const std::string &ltr)
+{
+    char *ltrcstr = (char *)ltr.c_str();
+
+    if (ltr[0] == '-' || ltr[0] == '+')
+        *ltrcstr += 1;
+
+    int charPresentaion;
+
+    charPresentaion = std::atoi(ltrcstr);
+
+    if (charPresentaion < 0 || charPresentaion > 127 || !isNumber(ltr))
         std::cout << "char: impossible" << std::endl;
-    else if (!std::isprint(c))
+    else if (!std::isprint(charPresentaion))
         std::cout << "char: Non displayable" << std::endl;
     else
-        std::cout << "char: " << (char)c   << std::endl;
+        std::cout << "char: " << (char)charPresentaion << std::endl;
 
-    long long i = std::atoi(ltrcstr);
-
-    if (i < MIN_INT || i > MAX_INT)
+    long long intPresentaion = std::atoll(ltrcstr);
+    if (intPresentaion < MIN_INT || intPresentaion > MAX_INT || !isNumber(ltr))
         std::cout << "int: impossible" << std::endl;
     else
-        std::cout << "int: " << i << std::endl;
+        std::cout << "int: " << intPresentaion << std::endl;
 
-    float f = std::atof(ltrcstr);
+    float floatPresentaion = std::atof(ltrcstr);
 
-    if (f < MIN_FLOAT || f > MAX_FLOAT)
+    if (floatPresentaion < MIN_FLOAT || floatPresentaion > MAX_FLOAT)
         std::cout << "float: impossible" << std::endl;
     else
     {
-        std::cout << "float: " << f;
-        if (f - static_cast<int>(f) == 0)
+        std::cout << "float: " << floatPresentaion;
+        if (floatPresentaion - (int)(floatPresentaion) == 0)
             std::cout << ".0";
         std::cout << "f" << std::endl;
     }
 
-    double d = std::atof(ltrcstr);
-    
-    if (d < MIN_DOUBLE || d > MIN_DOUBLE)
+    double doublePresentaion = std::atof(ltrcstr);
+
+    if (doublePresentaion < MIN_DOUBLE || doublePresentaion > MAX_DOUBLE)
         std::cout << "double: impossible" << std::endl;
     else
-        std::cout << "double: " << d << std::endl;
-
-    
+    {
+        std::cout << "double: " << doublePresentaion;
+        if (doublePresentaion - (int)(doublePresentaion) == 0)
+            std::cout << ".0";
+        std::cout << std::endl;
+    }
 }

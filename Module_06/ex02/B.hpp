@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:37:00 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 13:37:10 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/30 20:51:10 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 class B : public Base {
 public:
-    virtual ~B() {}
+    virtual ~B();
 };
 
 #endif

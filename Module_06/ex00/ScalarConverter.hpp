@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:10 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 11:21:12 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/31 10:31:02 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 
 
 #include <iostream>
-
 #include <cstdlib>
+#include <limits>
 
 
-#define MAX_INT 2147483647
-#define MIN_INT -2147483648
+#define MAX_INT std::numeric_limits<int>::max()
+#define MIN_INT std::numeric_limits<int>::min()
 
-#define MAX_FLOAT 3.402823466e+38F
-#define MIN_FLOAT -3.402823466e+38F
+#define MAX_FLOAT std::numeric_limits<double>::max()
+#define MIN_FLOAT std::numeric_limits<float>::min()
 
-#define MAX_DOUBLE 1.7976931348623157e+308
-#define MIN_DOUBLE -1.7976931348623157e+308
-
+#define MAX_DOUBLE std::numeric_limits<double>::max()
+#define MIN_DOUBLE std::numeric_limits<double>::min()
 
 class ScalarConverter {
 public:
@@ -39,9 +38,11 @@ public:
 
     static void convert(const std::string &ltr);
 
-    void checkValidInput(std::string ltr);
-
-
+    void checkValidInput(std::string ltr) const;
+    
 };
+
+
+bool isNumber(std::string ltr);
 
 #endif

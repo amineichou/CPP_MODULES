@@ -6,20 +6,19 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:35:24 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 13:36:10 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/30 20:51:33 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BASE_HPP
 #define BASE_HPP
 
-
+#include <iostream>
 
 class Base {
 public:
-    virtual ~Base() {}
+    virtual ~Base();
 };
-
 
 
 #endif

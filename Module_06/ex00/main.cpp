@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:21:02 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 11:21:04 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/31 10:30:04 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ int main(int argc, char **argv)
         std::cerr << "Caught an unknown exception :( " << std::endl;
         return 1;
     }
-
     return 0;
 }
