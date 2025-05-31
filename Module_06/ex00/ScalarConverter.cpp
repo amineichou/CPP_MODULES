@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/31 15:13:31 by moichou          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:16:06 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool isNumber(std::string ltr)
 {
     for (size_t i = 0; i < ltr.length(); i++)
     {
-        if (!std::isdigit(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.' && ltr[i] != 'f')
+        if (!std::isdigit(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.' && ltr[i] != 'f' && ltr != "nan" && ltr != "nanf")
             return false;
     }
     return true;
