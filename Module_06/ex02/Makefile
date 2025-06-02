@@ -1,4 +1,4 @@
-NAME = convert
+NAME = executable
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Base.cpp A.cpp B.cpp C.cpp main.cpp

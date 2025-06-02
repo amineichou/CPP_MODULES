@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:38:22 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/31 15:21:05 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/02 17:06:20 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Base *generate(void)
 }
 
 
-void identify(Base* p)
+void identify(Base *p)
 {
     if (dynamic_cast<A*>(p))
         std::cout << "The type of this object is [A] ." << std::endl;
@@ -53,10 +53,11 @@ void identify(Base* p)
         std::cout << "The type of this object is [C] ." << std::endl;
     else
         std::cout << "The type of this object is Unknown ." << std::endl;
+
 }
 
 
-void identify(Base& p)
+void identify(Base &p)
 {
     try {
         A &objectTest = dynamic_cast<A&>(p);

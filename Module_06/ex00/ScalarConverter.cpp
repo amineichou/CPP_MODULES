@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/31 15:16:06 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/02 16:52:15 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void ScalarConverter::convert(const std::string &ltr)
 
     charPresentaion = std::atoi(ltrcstr);
 
-    if (charPresentaion < 0 || charPresentaion > 127 || !isNumber(ltr))
+    if (charPresentaion < 0 || charPresentaion > 127 || !isNumber(ltr) || ltr == "nan" || ltr == "nanf")
         std::cout << "char: impossible" << std::endl;
     else if (!std::isprint(charPresentaion))
         std::cout << "char: Non displayable" << std::endl;
@@ -72,7 +72,7 @@ void ScalarConverter::convert(const std::string &ltr)
         std::cout << "char: " << (char)charPresentaion << std::endl;
 
     long long intPresentaion = std::atoll(ltrcstr);
-    if (intPresentaion < MIN_INT || intPresentaion > MAX_INT || !isNumber(ltr))
+    if (intPresentaion < MIN_INT || intPresentaion > MAX_INT || !isNumber(ltr) || ltr == "nan" || ltr == "nanf")
         std::cout << "int: impossible" << std::endl;
     else
         std::cout << "int: " << intPresentaion << std::endl;
@@ -84,7 +84,7 @@ void ScalarConverter::convert(const std::string &ltr)
     else
     {
         std::cout << "float: " << floatPresentaion;
-        if (floatPresentaion - (int)(floatPresentaion) == 0)
+        if (floatPresentaion - static_cast<int>(floatPresentaion) == 0)
             std::cout << ".0";
         std::cout << "f" << std::endl;
     }
@@ -96,7 +96,7 @@ void ScalarConverter::convert(const std::string &ltr)
     else
     {
         std::cout << "double: " << doublePresentaion;
-        if (doublePresentaion - (int)(doublePresentaion) == 0)
+        if (doublePresentaion - static_cast<int>(doublePresentaion) == 0)
             std::cout << ".0";
         std::cout << std::endl;
     }

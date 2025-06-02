@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 11:42:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/29 18:02:54 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/02 17:01:25 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,16 @@ int main(void)
     Data original("Alice", 30, true);
     original.display(); 
 
-    // Serialize the object
+    std::cout << "Address before serilize : {" << &original  << "}"<< std::endl;
+
     uintptr_t raw = Serializer::serialize(&original);
     std::cout << "Serialized data: " << raw << std::endl;
 
-    // Deserialize the object
     Data* deserialized = static_cast<Data*>(Serializer::deserialize(raw));
     deserialized->display();
 
+    std::cout << "Address after deserialize : {" << deserialized  << "}"<< std::endl;
+
     return 0;
 }
+
