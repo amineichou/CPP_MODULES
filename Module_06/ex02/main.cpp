@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:38:22 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/02 17:06:20 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/19 11:23:36 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 Base *generate(void)
 {
-    srand(time(NULL));
-    int rNumber = rand() % 3;
+    std::srand(time(NULL));
+    int rNumber = std::rand() % 3;
 
     switch (rNumber)
     {
@@ -74,7 +74,7 @@ void identify(Base &p)
     try {
         C &objectTest = dynamic_cast<C&>(p);
         (void)objectTest;
-        std::cout << "The type of this object is [C] ." << std::endl;
+        std::cout << "The type of this object is [C] ." << std::endl;   
     } catch (...) {}
 }
 

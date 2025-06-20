@@ -6,11 +6,26 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:21:02 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/31 10:30:04 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/17 17:13:50 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+
+void checkValidInput(std::string ltr)
+{
+    if (ltr.empty())
+        throw "Invalid input";
+
+
+    for (size_t i = 0; i < ltr.length(); i++)
+    {
+        if (!std::isalnum(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.')
+            throw "Invalid input";
+    }
+}
+
 
 
 int main(int argc, char **argv)
@@ -20,12 +35,10 @@ int main(int argc, char **argv)
         std::cerr << "Error: Invalid number of arguments." << std::endl;
         return 1;
     }
-
-    ScalarConverter converter;
     
     try {
-        converter.checkValidInput(argv[1]);
-        converter.convert(argv[1]);
+        checkValidInput(argv[1]);
+        ScalarConverter::convert(argv[1]);
     } catch (std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;

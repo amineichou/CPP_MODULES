@@ -6,14 +6,12 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:37:00 by moichou           #+#    #+#             */
-/*   Updated: 2025/05/30 20:51:10 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/17 17:01:09 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef B_HPP
 #define B_HPP
-
-
 
 
 #include "Base.hpp"

@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   DataExample.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 11:42:34 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/18 13:00:05 by moichou          ###   ########.fr       */
+/*   Created: 2025/06/18 12:56:36 by moichou           #+#    #+#             */
+/*   Updated: 2025/06/19 12:17:40 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#ifndef DATAEXAMPLE_HPP
+#define DATAEXAMPLE_HPP
 
-
-#include "DataExample.hpp"
+/* my example of data class for testing */
 
 #include <iostream>
-typedef unsigned long uintptr_t;
 
-
-class Serializer
+class Data
 {
-private:
-    Serializer();
-    Serializer(const Serializer&othr);
-    ~Serializer();
-    
-    Serializer& operator=(const Serializer&sec);
-
 public:
-    static uintptr_t serialize(Data* ptr);
-    static Data* deserialize(uintptr_t raw);
-};
+    std::string name;
+    int age;
+    bool isStudent;
 
+    Data(const std::string& n, int a, bool s);
+
+    void display() const ;
+};
 
 
 

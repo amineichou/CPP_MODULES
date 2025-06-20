@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:40:01 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/03 20:19:46 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/18 12:25:08 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &othr)
     return *this;
 }
 
-void ScalarConverter::checkValidInput(std::string ltr) const
-{
-    if (ltr.empty())
-        throw "Invalid input";
-
-
-    for (size_t i = 0; i < ltr.length(); i++)
-    {
-        if (!std::isalnum(ltr[i]) && ltr[i] != '-' && ltr[i] != '+' && ltr[i] != '.')
-            throw "Invalid input";
-    }
-}
-
 
 bool isNumber(std::string ltr)
 {
@@ -58,16 +45,24 @@ bool isNumber(std::string ltr)
 
 void ScalarConverter::convert(const std::string &ltr)
 {
-    char *ltrcstr = (char *)ltr.c_str();
+    const char *ltrcstr = ltr.c_str();
 
     if (ltr == "nan" || ltr == "inf" || ltr == "-inf" ||
-        ltr == "nanf" || ltr == "inff" || ltr == "-inff" ||
-        ltr == "+inf" || ltr == "+inff")
+        ltr == "nanf" || ltr == "+inf")
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: " << ltr << "f" << std::endl;
         std::cout << "double: " << ltr << std::endl;
+        return;
+    }
+
+    if (ltr == "+inff" || ltr == "inff" || ltr == "-inff")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << ltr << std::endl;
+        std::cout << "double: " << ltr.substr(0, ltr.length() - 1) << std::endl;
         return;
     }
 
@@ -80,9 +75,9 @@ void ScalarConverter::convert(const std::string &ltr)
     else if (!std::isprint(charPresentaion))
         std::cout << "char: Non displayable" << std::endl;
     else
-        std::cout << "char: " << (char)charPresentaion << std::endl;
+        std::cout << "char: " << static_cast<char>(charPresentaion) << std::endl;
 
-    long long intPresentaion = std::atoll(ltrcstr);
+    long intPresentaion = std::atol(ltrcstr);
     if (intPresentaion < MIN_INT || intPresentaion > MAX_INT || !isNumber(ltr))
         std::cout << "int: impossible" << std::endl;
     else

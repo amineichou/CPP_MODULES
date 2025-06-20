@@ -1,8 +1,8 @@
 NAME = serializer
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = Serializer.cpp main.cpp
-HEADERS = Serializer.hpp
+SRCS = Serializer.cpp DataExample.cpp main.cpp 
+HEADERS = Serializer.hpp DataExample.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
