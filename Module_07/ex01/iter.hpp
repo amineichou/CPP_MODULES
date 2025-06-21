@@ -1,8 +1,14 @@
-
-
-
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/21 15:49:29 by moichou           #+#    #+#             */
+/*   Updated: 2025/06/21 16:23:58 by moichou          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 
 #ifndef ITER_HPP
@@ -13,14 +19,27 @@
 
 
 template <typename TEMPL>
-void iter(TEMPL *array, size_t length, void (*func)(TEMPL &))
+void iter(TEMPL *array, unsigned long length, void (*function)(TEMPL &arr))
 {
-    for (size_t i = 0; i < length; ++i) {
-        func(array[i]);
+    unsigned int i = 0;
+    while (i < length)
+    {
+        function(array[i]);
+        i++;
     }
 }
 
 
+template <typename TEMPL>
+void iter(TEMPL *array, unsigned long length, void (*function)(const TEMPL &arr))
+{
+    unsigned int i = 0;
+    while (i < length)
+    {
+        function(array[i]);
+        i++;
+    }
+}
 
 
 

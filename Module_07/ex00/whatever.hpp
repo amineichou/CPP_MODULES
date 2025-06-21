@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 18:02:48 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/03 18:02:50 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/21 13:18:45 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void swap(ANY  &a, ANY &b)
 
 
 template <typename ANY>
-ANY min(ANY &a, ANY &b)
+ANY min(ANY a, ANY b)
 {
     if (a < b)
         return a;
@@ -35,7 +35,7 @@ ANY min(ANY &a, ANY &b)
 }
 
 template <typename ANY>
-ANY max(ANY &a, ANY &b)
+ANY max(ANY a, ANY b)
 {
     if (a > b)
         return a;

@@ -2,7 +2,7 @@ NAME = executable
 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
-HEADER = iter.hpp
+HEADER = Array.hpp
 
 COMPILER = c++
 

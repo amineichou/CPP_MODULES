@@ -1,6 +1,6 @@
 NAME = executable
 
-SRC = main.cpp  whatever.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 HEADER = whatever.hpp
 
