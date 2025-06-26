@@ -6,62 +6,43 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 16:32:16 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/24 21:52:00 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/26 18:07:45 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-// test from the subject assignment
-
-#define MAX_VAL 750
-int main(int, char **)
+int main(void)
 {
-    Array<int> numbers(MAX_VAL);
-    int *mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
+    Array<int> someArrayOfInt(5);
+
+    std::cout << "this array had " << someArrayOfInt.size() << " elements" << std::endl;
+
+    for (unsigned int i = 0; i < someArrayOfInt.size(); i++)
     {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
+        someArrayOfInt[i] = i;
     }
 
-
+    for (unsigned int i = 0; i < someArrayOfInt.size(); i++)
     {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
+        std::cout << someArrayOfInt[i] << std::endl;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
+    // accessing out of range element
+
+    try {
+        someArrayOfInt[6] = 5;
+
+        std::cout << someArrayOfInt[6] << std::endl;
     }
-    try
+    catch (std::exception &e)
     {
-        numbers[-2] = 0;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
+        std::cout << "caught an exception : " << e.what() << std::endl;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete[] mirror;
+    // empty array
+
+    Array<int> empty();
+
     return 0;
 }

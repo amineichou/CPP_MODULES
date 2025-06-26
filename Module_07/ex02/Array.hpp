@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 16:32:53 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/24 15:54:00 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/26 17:21:32 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define ARRAY_HPP
 
 
-#include <cstdlib>
+
 #include <iostream>
 
 template <typename T>
@@ -41,7 +41,22 @@ public:
 
     unsigned int size(void) const;
 
+
+    class OutOfRangeException : public std::exception
+    {
+        public:
+        const char *what() const throw();
+    };
+
 };
+
+
+template <typename T>
+const char *Array<T>::OutOfRangeException::what() const throw()
+{
+    return "Index is out of range";
+}
+
 
 
 template <typename T>
@@ -104,7 +119,7 @@ Array<T> &Array<T>::operator=(const Array &othr)
         else
         {
             arrayElements = new T[arraySize];
-            for (unsigned int i = 0; i < arraySize; ++i)
+            for (unsigned int i = 0; i < arraySize; i++)
                 arrayElements[i] = othr.arrayElements[i];
         }
     }
@@ -116,7 +131,7 @@ T &Array<T>::operator[](unsigned int index)
 {
     if (index >= arraySize)
     {
-        throw std::out_of_range("Index out of range");
+        throw OutOfRangeException();
     }
     return arrayElements[index];
 }
@@ -127,9 +142,15 @@ const T &Array<T>::operator[](unsigned int index) const
 {
     if (index >= arraySize)
     {
-        throw std::out_of_range("Index out of range");
+        throw OutOfRangeException();
     }
     return arrayElements[index];
+}
+
+template <typename T>
+unsigned int Array<T>::size(void) const
+{
+    return arraySize;
 }
 
 
