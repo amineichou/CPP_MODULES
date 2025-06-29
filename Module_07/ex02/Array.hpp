@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 16:32:53 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/26 17:21:32 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/27 11:05:28 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ public:
     class OutOfRangeException : public std::exception
     {
         public:
-        const char *what() const throw();
+            const char *what() const throw();
     };
 
 };

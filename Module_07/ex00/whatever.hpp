@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 18:02:48 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/21 13:18:45 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/27 10:49:27 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ ANY min(ANY a, ANY b)
 {
     if (a < b)
         return a;
-
     return b;
 }
 
@@ -39,7 +38,6 @@ ANY max(ANY a, ANY b)
 {
     if (a > b)
         return a;
-
     return b;
 }
 

@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 16:32:16 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/26 18:07:45 by moichou          ###   ########.fr       */
+/*   Updated: 2025/06/27 10:57:00 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ int main(void)
     {
         std::cout << "caught an exception : " << e.what() << std::endl;
     }
-
-    // empty array
-
-    Array<int> empty();
 
     return 0;
 }
