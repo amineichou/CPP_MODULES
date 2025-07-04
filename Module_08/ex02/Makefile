@@ -2,7 +2,7 @@ NAME = executable
 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
-HEADER = easyfind.hpp
+HEADER = MutantStack.hpp
 
 COMPILER = c++
 
@@ -25,3 +25,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean
+

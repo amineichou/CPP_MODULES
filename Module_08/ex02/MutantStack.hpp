@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:30:44 by moichou           #+#    #+#             */
-/*   Updated: 2025/07/01 15:58:16 by moichou          ###   ########.fr       */
+/*   Created: 2025/07/04 10:42:55 by moichou           #+#    #+#             */
+/*   Updated: 2025/07/04 17:06:38 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <vector>
+#ifndef MUTANTSTACK_HPP
+#define MUTANTSTACK_HPP
 
-int main(void)
+#include <stack>
+#include <iostream>
+
+template <typename T>
+class Mutanstack : public std::stack<T>
 {
-    std::vector <int>test;
+public:
 
-    for (int i = 0; i < 10; i++)
-    {
-        test.push_back(i);
-    }
+    typename std::stack<T>::container_type::iterator it;
+};
 
-
-    std::vector <int> findTest = easyfind(test, 5);
-    int notFoundTest = easyfind(test, 44);
-
-    std::cout << "findTest : " << findTest << " | " << "not found" << std::endl;\
-    return 0;   
-    
-}
+#endif
