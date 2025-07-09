@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 18:59:29 by moichou           #+#    #+#             */
-/*   Updated: 2025/06/30 18:29:44 by moichou          ###   ########.fr       */
+/*   Updated: 2025/07/09 16:18:03 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@
 #include <algorithm>
 
 template <typename T>
-T easyfind(T &cn, int &num)
+int easyfind(T &cn, int &value)
 {
-    T element = std::find(cn.begin(), cn.end(), num);
-    if (element == cn.end())
+    typename T::iterator it = std::find(cn.begin(), cn.end(), value);
+    if (it == cn.end())
         throw std::runtime_error("element not found");
-    return element;  
+    return *it;
 }
 
 template <typename T>
-T easyfind(T &cn, int &num)
+int easyfind(const T &cn , const int &value)
 {
-    T element = std::find(cn.begin(), cn.end(), num);
-    if (element == cn.end())
+    typename T::const_iterator it = std::find(cn.begin(), cn.end(), value);
+    if (it == cn.end())
         throw std::runtime_error("element not found");
-    return element;  
+    return *it;
 }
+
 
 
 #endif
