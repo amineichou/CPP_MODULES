@@ -14,9 +14,8 @@ int main(int ac, char **av)
     try
     {
         test.readDataBase();
-        test.parseInputFile(av[1]);
         test.readDataBase();
-        test.execute();
+        test.execute(av[1]);
     }
     catch (std::exception &e)
     {

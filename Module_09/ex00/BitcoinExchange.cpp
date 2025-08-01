@@ -60,6 +60,16 @@ void BitcoinExchange::readDataBase(void)
     }
 }
 
+float BitcoinExchange::getValueFromDatabase(const std::string &date)
+{
+    std::map<std::string, std::string>::iterator it = dataBase.lower_bound(date);
+
+    if (it == dataBase.begin())
+        it--;
+
+    return std::atof(it->second.c_str());
+}
+
 void BitcoinExchange::HandlePrintDateAndValue(std::string &date, std::string &value)
 {
     if (date.empty() || value.empty())
@@ -86,36 +96,24 @@ void BitcoinExchange::HandlePrintDateAndValue(std::string &date, std::string &va
 
     double val = std::atof(value.c_str());
 
-    if (val < 0 || val > 1000)
+    if (val > 1000)
     {
-        std::cout << "Error: too large a number" << std::endl;
+        std::cout << "Error: too large a number." << std::endl;
         return;
     }
 
-    std::cout << date << " => " << value << " = " << 0 << std::endl;
-}
- 
-void BitcoinExchange::parseInputLine(std::string &line)
-{
-    size_t pos = line.find('|');
-    if (pos == std::string::npos)
+    if (val < 0)
     {
-        ft_strtrim(line);
-        inputData.insert(std::make_pair(line, ""));
+        std::cout << "Error: not a positive number." << std::endl;
         return;
     }
 
-    std::string date = line.substr(0, pos);
-    std::string value = line.substr(pos + 1);
+    float searchValue = getValueFromDatabase(date);
 
-    // rm spaces
-    ft_strtrim(date);
-    ft_strtrim(value);
-
-    inputData.insert(std::make_pair(date, value));
+    std::cout << date << " => " << value << " = " << (val * searchValue) << std::endl;
 }
 
-void BitcoinExchange::parseInputFile(char *fileName)
+void BitcoinExchange::execute(char *fileName)
 {
     std::string line;
     bool isHeader = true;
@@ -133,27 +131,26 @@ void BitcoinExchange::parseInputFile(char *fileName)
                     throw std::runtime_error("invalid header in input file.");
                 continue;
             }
-            parseInputLine(line);
+
+            // process line
+            
+            size_t pos = line.find('|');
+
+            if (pos == std::string::npos)
+            {
+                std::cout << "Error: bad input => " << line << std::endl;
+                continue;
+            }
+
+            std::string date = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+
+            ft_strtrim(date);
+            ft_strtrim(value);
+
+            HandlePrintDateAndValue(date, value);
         }
     }
     else
         throw std::runtime_error("input file is not open.");
-}
-
-void BitcoinExchange::execute(void)
-{
-    std::map<std::string, std::string>::iterator it = inputData.begin();
-
-        
-
-    for (it = inputData.begin(); it != inputData.end(); it++)
-    {
-        std::string date = it->first;
-        std::string value = it->second;
-
-
-        HandlePrintDateAndValue(date, value);
-
-        std::cout << "date: " << date << ", value: " << value << std::endl;
-    }
 }

@@ -13,12 +13,11 @@ class BitcoinExchange {
         std::fstream dataBaseFile;
         std::fstream inputFile;
 
-        std::map<std::string, std::string> inputData;
         std::map<std::string, std::string> dataBase;
 
         
-        void parseInputLine(std::string &line);
         void ft_strtrim(std::string &str);
+        float getValueFromDatabase(const std::string &date);
 
 
     public:
@@ -30,12 +29,9 @@ class BitcoinExchange {
 
 
         
-        void parseInputFile(char *fileName);
+        void execute(char *fileName);
         void HandlePrintDateAndValue(std::string &date, std::string &value);
         void readDataBase(void);
-
-
-        void execute(void);
 
 };
 
