@@ -103,6 +103,9 @@ void PmergeMe::insertSmallestIntoBiggest(const std::vector<int> &smallestNumbers
         if (position < biggestNumbers.size())
         {
             position = binarySearchPosition(smallestNumbers[i], biggestNumbers);
+
+            
+
             biggestNumbers.insert(biggestNumbers.begin() + position, smallestNumbers[i]);
         }
         else
