@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/04 11:28:10 by moichou           #+#    #+#             */
+/*   Updated: 2025/08/04 11:47:12 by moichou          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
@@ -13,7 +25,7 @@ private:
     std::vector<int> numbersVector;
     std::deque<int> numbersDeque;
 
-    int getJacobsthalSequence(int n) const;
+    std::vector<int> getJacobsthalSequence(size_t) const;
     void insertSmallestIntoBiggest(const std::vector<int> &smallestNumbers, std::vector<int> &biggestNumbers);
     void insertSmallestIntoBiggest(const std::deque<int> &smallestNumbers, std::deque<int> &biggestNumbers);
     int binarySearchPosition(int position, std::vector<int> &smallestNumbers) const;

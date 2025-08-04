@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/04 11:28:02 by moichou           #+#    #+#             */
+/*   Updated: 2025/08/04 15:45:33 by moichou          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe() {}
@@ -6,15 +18,15 @@ PmergeMe::~PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe &src)
 {
-    (void)src; // Suppress unused parameter warning
-    // Copy constructor implementation
+    *this = src;
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &othr)
 {
     if (this != &othr)
     {
-        // Assignment operator implementation
+        this->numbersVector = othr.numbersVector;
+        this->numbersDeque = othr.numbersDeque;
     }
     return *this;
 }
@@ -38,21 +50,13 @@ void PmergeMe::parseInput(int ac, char **av)
     }
 }
 
-int PmergeMe::binarySearchPosition(int position, std::vector<int> &biggestNumbers) const
+int PmergeMe::binarySearchPosition(int value, std::vector<int> &biggestNumbers) const
 {
-    int left = 0;
-    int right = biggestNumbers.size();
+    std::vector<int>::iterator it = std::lower_bound(biggestNumbers.begin(), biggestNumbers.end(), value);
+    if (it == biggestNumbers.end())
+        return biggestNumbers.size();
 
-    while (left < right)
-    {
-        int mid = left + (right - left) / 2;
-
-        if (biggestNumbers[mid] < position)
-            left = mid + 1;
-        else
-            right = mid;
-    }
-    return left;
+    return std::distance(biggestNumbers.begin(), it);
 }
 
 int PmergeMe::binarySearchPosition(int position, std::deque<int> &biggestNumbers) const
@@ -72,63 +76,67 @@ int PmergeMe::binarySearchPosition(int position, std::deque<int> &biggestNumbers
     return left;
 }
 
-int PmergeMe::getJacobsthalSequence(int n) const
+std::vector<int> PmergeMe::getJacobsthalSequence(size_t size) const
 {
+    std::vector<int> sequence;
+
+    if (size <= 0)
+        return sequence;
+
+    sequence.push_back(0);
+    if (size == 1)
+        return sequence;
+
+    sequence.push_back(1);
     int a = 0;
     int b = 1;
-    int index = 1;
+    size_t count = 2;
 
-    if (n == 0)
-        return a;
-    if (n == 1)
-        return b;
-
-    int result = 0;
-    while (index < n)
+    while (count < size)
     {
-        result = b + 2 * a;
+        int next = b + 2 * a;
+        sequence.push_back(next);
         a = b;
-        b = result;
-        index++;
+        b = next;
+        count++;
     }
 
-    return result;
+    return sequence;
 }
 
 void PmergeMe::insertSmallestIntoBiggest(const std::vector<int> &smallestNumbers, std::vector<int> &biggestNumbers)
 {
-    for (size_t i = 0; i < smallestNumbers.size(); i++)
+    std::vector<int> generatedSequence = getJacobsthalSequence(smallestNumbers.size());
+    size_t i = 0;
+
+    while (i < generatedSequence.size())
     {
-        size_t position = getJacobsthalSequence(i);
-        if (position < biggestNumbers.size())
+        size_t index = generatedSequence[i];
+        if (index < smallestNumbers.size())
         {
-            position = binarySearchPosition(smallestNumbers[i], biggestNumbers);
-
-            
-
-            biggestNumbers.insert(biggestNumbers.begin() + position, smallestNumbers[i]);
+            int valueToInsert = smallestNumbers[index];
+            size_t position = binarySearchPosition(valueToInsert, biggestNumbers);
+            biggestNumbers.insert(biggestNumbers.begin() + position, valueToInsert);
         }
-        else
-        {
-            biggestNumbers.push_back(smallestNumbers[i]);
-        }
+        i++;
     }
 }
 
 void PmergeMe::insertSmallestIntoBiggest(const std::deque<int> &smallestNumbers, std::deque<int> &biggestNumbers)
 {
-    for (size_t i = 0; i < smallestNumbers.size(); i++)
+    std::vector<int> generatedSequence = getJacobsthalSequence(smallestNumbers.size());
+    size_t i = 0;
+
+    while (i < generatedSequence.size())
     {
-        size_t position = getJacobsthalSequence(i);
-        if (position < biggestNumbers.size())
+        size_t index = generatedSequence[i];
+        if (index < smallestNumbers.size())
         {
-            position = binarySearchPosition(smallestNumbers[i], biggestNumbers);
-            biggestNumbers.insert(biggestNumbers.begin() + position, smallestNumbers[i]);
+            int valueToInsert = smallestNumbers[index];
+            size_t position = binarySearchPosition(valueToInsert, biggestNumbers);
+            biggestNumbers.insert(biggestNumbers.begin() + position, valueToInsert);
         }
-        else
-        {
-            biggestNumbers.push_back(smallestNumbers[i]);
-        }
+        i++;
     }
 }
 

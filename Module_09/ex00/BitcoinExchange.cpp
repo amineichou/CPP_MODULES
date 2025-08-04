@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/04 11:26:55 by moichou           #+#    #+#             */
+/*   Updated: 2025/08/04 11:26:56 by moichou          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange()
@@ -6,8 +19,7 @@ BitcoinExchange::BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &othr)
 {
-    // make late
-    (void)othr; // to avoid unused parameter warning
+    this->dataBase = othr.dataBase;
 }
 
 BitcoinExchange::~BitcoinExchange() {}
@@ -16,7 +28,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &sec)
 {
     if (this != &sec)
     {
-        // make later
+        this->dataBase = sec.dataBase;
     }
     return *this;
 }
@@ -30,41 +42,48 @@ void BitcoinExchange::ft_strtrim(std::string &str)
     size_t end = str.size();
     while (end > start && std::isspace(str[end - 1]))
         end--;
-
     str = str.substr(start, end - start);
 }
 
 void BitcoinExchange::readDataBase(void)
 {
     dataBaseFile.open("data.csv");
-    if (!dataBaseFile.is_open())
+    if (dataBaseFile.is_open())
     {
-        std::cout << "could not open file." << std::endl;
-    }
+        std::string line;
 
-    std::string line;
-    while (std::getline(dataBaseFile, line))
-    {
-        if (line.empty())
-            continue;
-        size_t pos = line.find(',');
-        if (pos == std::string::npos)
-            throw std::runtime_error("invalid line format in database.");
-        std::string date = line.substr(0, pos);
-        std::string value = line.substr(pos + 1);
-        ft_strtrim(date);
-        ft_strtrim(value);
-        if (date.empty() || value.empty())
-            throw std::runtime_error("invalid date or value in database.");
-        dataBase[date] = value;
+        while (std::getline(dataBaseFile, line))
+        {
+            if (line.empty())
+                continue;
+
+            ft_strtrim(line);
+            if (line.find("date,exchange_rate") != std::string::npos)
+                continue;
+            size_t pos = line.find(',');
+            if (pos == std::string::npos)
+                throw std::runtime_error("invalid line format in database.");
+            std::string date = line.substr(0, pos);
+            std::string value = line.substr(pos + 1);
+            ft_strtrim(date);
+            ft_strtrim(value);
+            if (date.empty() || value.empty())
+                throw std::runtime_error("invalid date or value in database.");
+            dataBase[date] = value;
+        }
+
+        if (dataBase.empty())
+            throw std::runtime_error("database is empty.");
     }
+    else
+        throw std::runtime_error("can't open database file.");
 }
 
 float BitcoinExchange::getValueFromDatabase(const std::string &date)
 {
     std::map<std::string, std::string>::iterator it = dataBase.lower_bound(date);
 
-    if (it == dataBase.begin())
+    if (it == dataBase.end())
         it--;
 
     return std::atof(it->second.c_str());
@@ -72,6 +91,7 @@ float BitcoinExchange::getValueFromDatabase(const std::string &date)
 
 void BitcoinExchange::HandlePrintDateAndValue(std::string &date, std::string &value)
 {
+
     if (date.empty() || value.empty())
     {
         std::cout << "Error: bad input => " << date << " | " << value << std::endl;
@@ -115,22 +135,17 @@ void BitcoinExchange::HandlePrintDateAndValue(std::string &date, std::string &va
 
 void BitcoinExchange::execute(char *fileName)
 {
-    std::string line;
-    bool isHeader = true;
     inputFile.open(fileName);
     if (inputFile.is_open())
     {
+        std::string line;
         while (std::getline(inputFile, line))
         {
             if (line.empty())
                 continue;
-            if (isHeader)
-            {
-                isHeader = false;
-                if (line.find("date | value") == std::string::npos)
-                    throw std::runtime_error("invalid header in input file.");
+            
+            if (line.find("date | value") != std::string::npos)
                 continue;
-            }
 
             // process line
             

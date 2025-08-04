@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/04 11:26:38 by moichou           #+#    #+#             */
+/*   Updated: 2025/08/04 11:26:40 by moichou          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
@@ -10,8 +22,8 @@
 class BitcoinExchange {
 
     private:
-        std::fstream dataBaseFile;
-        std::fstream inputFile;
+        std::ifstream dataBaseFile;
+        std::ifstream inputFile;
 
         std::map<std::string, std::string> dataBase;
 

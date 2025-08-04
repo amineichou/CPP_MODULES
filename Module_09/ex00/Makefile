@@ -6,7 +6,7 @@ HEADER = BitcoinExchange.hpp
 
 COMPILER = c++
 
-FLAGS = -Wall -Wextra -Werror  -std=c++98
+FLAGS = -Wall -Wextra -Werror  -std=c++98 -fsanitize=address
 
 all: $(NAME)
 
