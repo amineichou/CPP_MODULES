@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:28:10 by moichou           #+#    #+#             */
-/*   Updated: 2025/08/04 11:47:12 by moichou          ###   ########.fr       */
+/*   Updated: 2025/08/05 16:19:15 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ private:
     int binarySearchPosition(int position, std::deque<int> &smallestNumbers) const;
     void sortVector();
     void sortDeque();
-
-public:
+    
+    public:
     PmergeMe();
     PmergeMe(const PmergeMe &src);
     ~PmergeMe();
-
+    
     PmergeMe &operator=(const PmergeMe &othr);
-
+    
     void parseInput(int ac, char **av);
-
+    
     void runEverything(int ac);
 
 };

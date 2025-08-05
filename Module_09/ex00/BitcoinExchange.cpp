@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:26:55 by moichou           #+#    #+#             */
-/*   Updated: 2025/08/04 11:26:56 by moichou          ###   ########.fr       */
+/*   Updated: 2025/08/05 16:22:29 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,24 @@ float BitcoinExchange::getValueFromDatabase(const std::string &date)
     return std::atof(it->second.c_str());
 }
 
+int BitcoinExchange::parseValue(std::string value) const
+{
+    int dots = 0;
+    for (size_t i = 0; i < value.length(); i++)
+    {
+        if (!isdigit(value[i]) && value[i] != '.' && value[i] !=  '-' && value[i] != '+')
+            return 0;
+        if (value[i] == '.' && i == 0)
+            return 0;
+        if (value[i] == '.')
+            dots++;
+        if (dots > 1)
+            return 0;
+    }
+
+    return 1;
+}
+
 void BitcoinExchange::HandlePrintDateAndValue(std::string &date, std::string &value)
 {
 
@@ -111,6 +129,12 @@ void BitcoinExchange::HandlePrintDateAndValue(std::string &date, std::string &va
     if (month < 1 || month > 12 || day < 1 || day > 31 || year < 2009)
     {
         std::cout << "Error: bad input => " << date << std::endl;
+        return;
+    }
+
+    if (!parseValue(value))
+    {
+        std::cout << "Error: bad input => " << value << std::endl;
         return;
     }
 

@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:26:38 by moichou           #+#    #+#             */
-/*   Updated: 2025/08/04 11:26:40 by moichou          ###   ########.fr       */
+/*   Updated: 2025/08/05 16:21:46 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class BitcoinExchange {
 
         
         void ft_strtrim(std::string &str);
+        int parseValue(std::string value) const;
         float getValueFromDatabase(const std::string &date);
 
 
