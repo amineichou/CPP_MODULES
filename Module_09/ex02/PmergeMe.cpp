@@ -6,7 +6,7 @@
 /*   By: moichou <moichou@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:28:02 by moichou           #+#    #+#             */
-/*   Updated: 2025/08/04 15:45:33 by moichou          ###   ########.fr       */
+/*   Updated: 2025/08/05 13:36:39 by moichou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,39 +107,65 @@ std::vector<int> PmergeMe::getJacobsthalSequence(size_t size) const
 void PmergeMe::insertSmallestIntoBiggest(const std::vector<int> &smallestNumbers, std::vector<int> &biggestNumbers)
 {
     std::vector<int> generatedSequence = getJacobsthalSequence(smallestNumbers.size());
+    std::vector<bool> inserted(smallestNumbers.size(), false);
     size_t i = 0;
 
     while (i < generatedSequence.size())
     {
         size_t index = generatedSequence[i];
-        if (index < smallestNumbers.size())
+        if (index < smallestNumbers.size() && !inserted[index])
         {
             int valueToInsert = smallestNumbers[index];
             size_t position = binarySearchPosition(valueToInsert, biggestNumbers);
             biggestNumbers.insert(biggestNumbers.begin() + position, valueToInsert);
+            inserted[index] = true;
         }
         i++;
     }
+
+    // Insert the rest (missing indices)
+    for (size_t j = 0; j < smallestNumbers.size(); ++j)
+    {
+        if (!inserted[j])
+        {
+            int valueToInsert = smallestNumbers[j];
+            size_t position = binarySearchPosition(valueToInsert, biggestNumbers);
+            biggestNumbers.insert(biggestNumbers.begin() + position, valueToInsert);
+        }
+    }
 }
+
 
 void PmergeMe::insertSmallestIntoBiggest(const std::deque<int> &smallestNumbers, std::deque<int> &biggestNumbers)
 {
     std::vector<int> generatedSequence = getJacobsthalSequence(smallestNumbers.size());
+    std::vector<bool> inserted(smallestNumbers.size(), false);
     size_t i = 0;
 
     while (i < generatedSequence.size())
     {
         size_t index = generatedSequence[i];
-        if (index < smallestNumbers.size())
+        if (index < smallestNumbers.size() && !inserted[index])
         {
             int valueToInsert = smallestNumbers[index];
             size_t position = binarySearchPosition(valueToInsert, biggestNumbers);
             biggestNumbers.insert(biggestNumbers.begin() + position, valueToInsert);
+            inserted[index] = true;
         }
         i++;
     }
-}
 
+    // Insert the rest (missing indices)
+    for (size_t j = 0; j < smallestNumbers.size(); ++j)
+    {
+        if (!inserted[j])
+        {
+            int valueToInsert = smallestNumbers[j];
+            size_t position = binarySearchPosition(valueToInsert, biggestNumbers);
+            biggestNumbers.insert(biggestNumbers.begin() + position, valueToInsert);
+        }
+    }
+}
 void PmergeMe::sortVector()
 {
     size_t size = numbersVector.size();
